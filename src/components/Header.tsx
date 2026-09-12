@@ -90,7 +90,7 @@ export const Header: React.FC = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-2 xl:px-3 py-2 rounded text-xs xl:text-sm font-semibold transition-colors ${
+                  className={`px-3 py-2 rounded text-sm font-semibold transition-colors ${
                     isActive
                       ? "text-[#0B5C8A] bg-[#EFF3F5] font-bold border-b-2 border-[#0B5C8A]"
                       : "text-[#151A1C] hover:text-[#0B5C8A] hover:bg-[#FBF8F3]"
@@ -104,9 +104,9 @@ export const Header: React.FC = () => {
 
           {/* Right Action Items */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            {/* Live Open Now Pill (Hidden on mobile & smaller desktops to save space) */}
-            <div className="hidden 2xl:block">
-              <OpenNowPill />
+            {/* Live Open Now Pill (Dot Version) */}
+            <div className="hidden xl:block">
+              <OpenNowPill variant="dotOnly" />
             </div>
 
             {/* Language Switcher */}
@@ -117,17 +117,15 @@ export const Header: React.FC = () => {
               aria-label="Toggle language"
             >
               <Globe className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#0B5C8A]" />
-              <span className="hidden 2xl:inline-block">{lang === "en" ? "தமிழ்" : "English"}</span>
+              <span className="hidden sm:inline-block">{lang === "en" ? "தமிழ்" : "English"}</span>
             </button>
-
-
 
             {/* Book Consultation Primary Button */}
             <button
               onClick={() => setModalOpen(true)}
-              className="hidden sm:inline-flex items-center justify-center px-3 sm:px-5 py-2.5 bg-[#0B5C8A] hover:bg-[#08486D] text-[#FFFFFF] text-xs sm:text-sm font-bold rounded shadow-xs transition-colors cursor-pointer shrink-0"
+              className="hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2.5 bg-[#0B5C8A] hover:bg-[#08486D] text-[#FFFFFF] text-sm font-bold rounded shadow-xs hover:shadow-md transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200 cursor-pointer shrink-0"
             >
-              {t("Book OPD Token", "முன்பதிவு")}
+              {t("Book OPD", "முன்பதிவு")}
             </button>
 
             {/* Mobile Hamburger Menu Toggle */}

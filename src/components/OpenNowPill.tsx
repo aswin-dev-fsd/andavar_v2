@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export const OpenNowPill: React.FC<{ compact?: boolean; className?: string }> = ({
+export const OpenNowPill: React.FC<{ compact?: boolean; variant?: "default" | "dotOnly"; className?: string }> = ({
   compact = false,
+  variant = "default",
   className = "",
 }) => {
   const { t, lang } = useLanguage();
@@ -84,6 +85,24 @@ export const OpenNowPill: React.FC<{ compact?: boolean; className?: string }> = 
     return () => clearInterval(interval);
   }, [lang]);
 
+  if (variant === "dotOnly") {
+    return (
+      <div 
+        className={`group relative inline-flex items-center justify-center p-2 rounded-full cursor-pointer hover:bg-[#EFF3F5] transition-colors ${className}`}
+      >
+        <div className="relative flex h-2.5 w-2.5">
+          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 duration-1000 ${isOpen ? "bg-[#2E7D5B]" : "bg-[#B8722C]"}`}></span>
+          <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isOpen ? "bg-[#2E7D5B] shadow-[0_0_6px_rgba(46,125,91,0.6)]" : "bg-[#B8722C] shadow-[0_0_6px_rgba(184,114,44,0.6)]"}`}></span>
+        </div>
+        {/* Tooltip */}
+        <div className="absolute top-full right-0 mt-2 whitespace-nowrap bg-[#151A1C] text-[#FFFFFF] text-xs px-3 py-2 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+          {statusText}
+          <div className="absolute top-0 right-3 -translate-y-full border-4 border-transparent border-b-[#151A1C]" />
+        </div>
+      </div>
+    );
+  }
+
   if (compact) {
     return (
       <div
@@ -94,11 +113,10 @@ export const OpenNowPill: React.FC<{ compact?: boolean; className?: string }> = 
         } ${className}`}
         title={statusText}
       >
-        <span
-          className={`w-2 h-2 rounded-full ${
-            isOpen ? "bg-[#2E7D5B] pulse-dot" : "bg-[#B8722C]"
-          }`}
-        />
+        <div className="relative flex h-2 w-2">
+          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 duration-1000 ${isOpen ? "bg-[#2E7D5B]" : "bg-[#B8722C]"}`}></span>
+          <span className={`relative inline-flex rounded-full h-2 w-2 ${isOpen ? "bg-[#2E7D5B]" : "bg-[#B8722C]"}`}></span>
+        </div>
         <span>{isOpen ? (lang === "ta" ? "கிளினிக் திறந்துள்ளது" : "Clinic Open Now") : (lang === "ta" ? "ஓ.பி.டி முடிந்தது" : "OPD Closed")}</span>
       </div>
     );
@@ -112,11 +130,10 @@ export const OpenNowPill: React.FC<{ compact?: boolean; className?: string }> = 
           : "bg-[#FDF8F3] text-[#B8722C] border-[#B8722C]/30"
       } ${className}`}
     >
-      <span
-        className={`w-2.5 h-2.5 rounded-full shrink-0 ${
-          isOpen ? "bg-[#2E7D5B] pulse-dot shadow-[0_0_8px_rgba(46,125,91,0.5)]" : "bg-[#B8722C]"
-        }`}
-      />
+      <div className="relative flex h-2.5 w-2.5 shrink-0">
+        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 duration-1000 ${isOpen ? "bg-[#2E7D5B]" : "bg-[#B8722C]"}`}></span>
+        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isOpen ? "bg-[#2E7D5B] shadow-[0_0_6px_rgba(46,125,91,0.6)]" : "bg-[#B8722C] shadow-[0_0_6px_rgba(184,114,44,0.6)]"}`}></span>
+      </div>
       <span className="font-semibold">{statusText}</span>
     </div>
   );
