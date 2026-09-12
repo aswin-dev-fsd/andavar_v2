@@ -7,10 +7,105 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="display-1">Welcome to Shri Andavar</h1>
-        <p class="lede">Phase 1 scaffolding complete.</p>
+    
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-link">
+                <div class="brand-logo"></div>
+                <div class="brand-text">
+                    <span class="brand-name">Shri Andavar</span>
+                    <span class="brand-tagline">EYE CARE & RETINA CENTRE</span>
+                </div>
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="treatments.html" class="nav-link">
+                    <span lang="en">Treatments</span><span lang="ta">சிகிச்சைகள்</span>
+                </a>
+                <a href="schemes.html" class="nav-link">
+                    <span lang="en">Schemes</span><span lang="ta">திட்டங்கள்</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <span lang="en">About Us</span><span lang="ta">எங்களை பற்றி</span>
+                </a>
+                
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <span lang="en" class="active">EN</span> / <span lang="ta">த</span>
+                </button>
+            </nav>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </header>
+
+    <!-- PAGE CONTENT PLACEHOLDER -->
+    <main id="page-content" style="min-height: 60vh;">
+        <div class="container" style="padding-top: 60px;">
+            <h1 class="display-1">Shared Shell Assembled</h1>
+            <p class="lede">Header, footer, and call bar implemented.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <img src="assets/aperture.svg" class="footer-aperture" alt="" aria-hidden="true">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col footer-brand">
+                    <div class="brand-text">
+                        <span class="brand-name">Shri Andavar</span>
+                        <span class="brand-tagline">EYE CARE & RETINA CENTRE</span>
+                    </div>
+                    <p class="footer-desc">
+                        <span lang="en">Cataract and retina care in Pollachi since 2013, by one surgeon who sees you from the first examination to the last follow-up.</span>
+                        <span lang="ta">பொள்ளாச்சியில் 2013 முதல் கண்புரை மற்றும் விழித்திரை சிகிச்சை. (Placeholder text)</span>
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4><span lang="en">TREATMENTS</span><span lang="ta">சிகிச்சைகள்</span></h4>
+                    <ul class="footer-links">
+                        <li><a href="cataract.html">Cataract surgery</a></li>
+                        <li><a href="treatments.html">Retina care</a></li>
+                        <li><a href="treatments.html">Diabetic eye care</a></li>
+                        <li><a href="treatments.html">Glaucoma</a></li>
+                        <li><a href="treatments.html">Eye check-up</a></li>
+                        <li><a href="schemes.html">Schemes & insurance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col footer-contact">
+                    <h4><span lang="en">ABOUT US & VISIT</span><span lang="ta">தொடர்புக்கு</span></h4>
+                    <p>No. 73, Palladam Road, Opposite LMHSS School,<br>T. Kottampatti, Pollachi 642002</p>
+                    <p><a href="tel:04259221000">04259 221 000</a></p>
+                    <p><a href="tel:9442056767">94420 56767</a></p>
+                    <p style="margin-top: 16px;"><a href="#" class="link-arrow" style="color: white;">Get directions</a></p>
+                    <p style="margin-top: 16px; font-size: 15px; color: var(--ink-3);">Mon–Sat &middot; 10:00 AM &ndash; 2:00 PM and 5:00 &ndash; 7:00 PM. Sunday closed.</p>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <span>&copy; 2026 Shri Andavar Eye Care and Retina Centre</span>
+                <span>Pollachi, Tamil Nadu</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CALL BAR -->
+    <div class="mobile-call-bar">
+        <div class="call-bar-inner">
+            <a href="tel:04259221000" class="btn-primary" id="sticky-call-btn">
+                <span lang="en">Call the hospital</span><span lang="ta">அழைக்கவும்</span>
+            </a>
+            <a href="#" class="btn-ghost" style="border-color: var(--line); color: var(--ink);">
+                <span lang="en">Directions</span><span lang="ta">வழி வரைபடம்</span>
+            </a>
+        </div>
     </div>
+
     <script src="js/main.js"></script>
 </body>
 </html>
