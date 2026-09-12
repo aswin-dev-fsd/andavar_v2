@@ -498,3 +498,200 @@ html[data-lang='ta'] body { font-weight: 500; }
     padding-bottom: 80px;
   }
 }
+
+/* Phase 4: Section Layouts */
+section {
+  padding: 120px 0;
+}
+
+@media (max-width: 860px) {
+  section { padding: 80px 0; }
+}
+
+.band-ground { background-color: var(--ground); }
+.band-warm { background-color: var(--warm-band); }
+.band-cool { background-color: var(--cool-band); }
+.band-ink { background-color: var(--ink); color: #C9D3D7; }
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 860px) {
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Status Pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--green-wash);
+  color: var(--green);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+
+.status-pill::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
+}
+
+.status-pill.closed {
+  background-color: var(--amber-wash);
+  color: var(--amber);
+}
+
+.status-pill.closed::before {
+  background-color: var(--amber);
+}
+
+/* Fact Strip */
+.fact-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--card);
+}
+
+.fact-cell {
+  padding: 32px 24px;
+  border-right: 1px solid var(--line);
+}
+
+.fact-cell:last-child {
+  border-right: none;
+}
+
+.fact-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 860px) {
+  .fact-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+  .fact-cell:nth-child(2) { border-right: none; }
+  .fact-cell:nth-child(1), .fact-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+}
+
+@media (max-width: 440px) {
+  .fact-strip {
+    grid-template-columns: 1fr;
+  }
+  .fact-cell { border-right: none !important; border-bottom: 1px solid var(--line); }
+  .fact-cell:last-child { border-bottom: none; }
+}
+
+/* Lists */
+.tick-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tick-list li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.tick-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.tick-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background-color: var(--green-wash);
+  color: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+.tick-list.cool li { border-bottom-color: var(--line-cool); }
+
+.numbered-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: steps-counter;
+}
+.numbered-steps li {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 48px;
+}
+.numbered-steps li::before {
+  counter-increment: steps-counter;
+  content: counter(steps-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--ink);
+}
+.numbered-steps li h3 { margin-bottom: 8px; }
+
+/* Image Placeholders */
+.img-placeholder {
+  background-color: #E2DACE;
+  width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.max-44ch { max-width: 44ch; margin-left: auto; margin-right: auto; }
+.mb-8 { margin-bottom: 8px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-40 { margin-bottom: 40px; }
+.mb-60 { margin-bottom: 60px; }
+.mt-0 { margin-top: 0; }
