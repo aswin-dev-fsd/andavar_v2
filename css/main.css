@@ -152,3 +152,97 @@ h4 {
   margin: 0 auto;
   padding: 0 clamp(20px, 5vw, 40px);
 }
+
+/* Phase 2: Bilingual Engine */
+html[data-lang='ta'] [lang='en'] { display: none !important; }
+html[data-lang='en'] [lang='ta'] { display: none !important; }
+html[data-lang='ta'] body { font-weight: 500; }
+
+/* Phase 2: Buttons & Links */
+.btn-primary {
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 16.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: var(--blue-deep);
+}
+.btn-ghost {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 16.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover {
+  background-color: white;
+  color: var(--ink);
+}
+.link-arrow {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.link-arrow::after {
+  content: '→';
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+.link-arrow:hover::after {
+  transform: translateX(4px);
+}
+
+/* Phase 2: Cards */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 32px;
+}
+.card--warm {
+  background-color: var(--warm-band);
+}
+.card--blue-tint {
+  background-color: var(--blue-wash);
+}
+.card--amber-tint {
+  background-color: var(--amber-wash);
+}
+
+/* Phase 2: Motion System */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
