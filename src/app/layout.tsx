@@ -102,14 +102,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased scroll-smooth">
+    <html lang="en" className="h-full antialiased scroll-smooth overflow-x-hidden">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#FBF8F3] text-[#151A1C] text-[18px] selection:bg-[#0B5C8A] selection:text-[#FFFFFF]">
+      <body className="min-h-full flex flex-col bg-[#FBF8F3] text-[#151A1C] text-[18px] selection:bg-[#0B5C8A] selection:text-[#FFFFFF] overflow-x-hidden">
         <LanguageProvider>
           <Header />
           <main className="flex-1">{children}</main>
