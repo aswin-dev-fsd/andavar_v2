@@ -695,3 +695,14 @@ section {
 .mb-40 { margin-bottom: 40px; }
 .mb-60 { margin-bottom: 60px; }
 .mt-0 { margin-top: 0; }
+
+/* Phase 5: Accessibility Polish */
+.btn-primary, .btn-ghost, .nav-link, .link-arrow, .lang-toggle {
+  min-height: 48px; /* Minimum touch target size for mobile */
+}
+
+/* Ensure no horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
