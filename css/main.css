@@ -1,0 +1,154 @@
+@import 'fonts.css';
+
+:root {
+  /* Grounds */
+  --ground: #FBF8F3;
+  --warm-band: #F5EFE5;
+  --cool-band: #EFF3F5;
+  --card: #FFFFFF;
+
+  /* Ink */
+  --ink: #151A1C;
+  --ink-2: #3E4A50;
+  --ink-3: #6B7A81;
+
+  /* Brand */
+  --blue: #0B5C8A;
+  --blue-deep: #083F5F;
+  --blue-wash: #E3EEF5;
+  --amber: #B8722C;
+  --amber-wash: #F6E8D6;
+  --green: #2E7D5B;
+  --green-wash: #E1F0E8;
+
+  /* Lines */
+  --line: #E2DACE;
+  --line-cool: #D8E0E4;
+}
+
+/* Global Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Anek Tamil', system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  line-height: 1.66;
+  color: var(--ink-2);
+  background-color: var(--ground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Constraints */
+h1, h2, h3, h4, .display-1, .display-2 {
+  color: var(--ink);
+  text-wrap: balance;
+  margin-top: 0;
+}
+
+p {
+  max-width: 64ch;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Scale */
+.display-1, h1 {
+  font-size: clamp(38px, 5.4vw, 63px);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.1;
+}
+
+.display-2 {
+  font-size: clamp(32px, 5.2vw, 54px);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(21px, 2.5vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.4;
+}
+
+.lede {
+  font-size: clamp(19px, 2.1vw, 23px);
+  font-weight: 400;
+  max-width: 46ch;
+}
+
+.small {
+  font-size: 16.5px;
+  font-weight: 400;
+}
+
+.caption {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink-3);
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  display: block;
+}
+
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: var(--blue);
+  margin-bottom: 12px;
+}
+
+/* Dark Sections */
+.dark-section {
+  background-color: #151A1C;
+  color: #C9D3D7;
+}
+.dark-section h1, .dark-section h2, .dark-section h3, .dark-section h4 {
+  color: #FFFFFF;
+}
+.dark-section .muted {
+  color: #8496A0;
+}
+.dark-section .eyebrow {
+  color: #7FBBDC;
+}
+.dark-section .eyebrow::before {
+  background-color: #7FBBDC;
+}
+.dark-section .hairline {
+  background-color: #2A3237;
+}
+
+/* Layout Variables (Phase 1) */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 40px);
+}

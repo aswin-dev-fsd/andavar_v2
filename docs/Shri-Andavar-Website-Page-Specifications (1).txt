@@ -1,0 +1,1725 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║   SHRI ANDAVAR EYE CARE AND RETINA CENTRE                                     ║
+║   WEBSITE — PAGE-BY-PAGE BUILD SPECIFICATION                                  ║
+║                                                                              ║
+║   Design system: "Clear Sight"                                                ║
+║   Nine pages · Mobile-first · English + Tamil                                 ║
+║   Version 1.0 — 12 September 2026                                             ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+HOW TO USE THIS DOCUMENT
+────────────────────────────────────────────────────────────────────────────────
+PART 0 is the design system. It applies to every page without exception. If you
+are handing a single page to a junior or to an AI tool, paste PART 0 first, then
+that page's section. Without PART 0 the page will not match the rest of the site.
+
+PART 1 is the shared shell — header, sticky call bar, footer. Identical on all
+nine pages. Build it once.
+
+PARTS 2–10 are the nine pages. Each has:
+   A · THE BRIEF        what the page is for and who is reading it
+   B · SECTION SPEC     every section in order, with the exact copy
+   C · WIREFRAME        desktop and mobile, drawn
+   D · PAGE RULES       anything specific to this page
+
+PART 11 is the consistency checklist. Run it before anything ships.
+
+Copy marked "EXACT" is final and must be used verbatim. Copy marked
+"PLACEHOLDER" must be replaced before launch and is flagged on the page itself.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 0 · THE DESIGN SYSTEM — APPLIES TO EVERY PAGE
+════════════════════════════════════════════════════════════════════════════════
+
+0.1 · THE IDEA IN ONE PARAGRAPH
+────────────────────────────────────────────────────────────────────────────────
+A warm, unhurried, photograph-free site for a small eye hospital in Pollachi run
+by one surgeon. The ground is warm off-white, never clinical white. The recurring
+graphic is the aperture — concentric lens rings drawn in hairline — because the
+circle is the organ, so the motif is the subject rather than decoration. The
+signature motion is a focus-pull: content arrives fractionally soft and resolves
+as it enters view, which is vision itself used as the site's motion language.
+Everything is sized for a worried person over fifty-five holding a phone.
+
+
+0.2 · COLOUR — USE THESE EXACT VALUES
+────────────────────────────────────────────────────────────────────────────────
+  GROUNDS
+  #FBF8F3   Ground         Default page background. Warm off-white.
+  #F5EFE5   Warm band      Alternate section. Human, softer moments.
+  #EFF3F5   Cool band      Alternate section. Data-dense, factual moments.
+  #FFFFFF   Card           Cards and panels only, never a full section.
+
+  INK
+  #151A1C   Ink            All headings.
+  #3E4A50   Ink-2          Body text.
+  #6B7A81   Ink-3          Captions, secondary, labels.
+
+  BRAND
+  #0B5C8A   Blue           ACTIONS ONLY — buttons, links, eyebrows, accents.
+  #083F5F   Blue deep      Button hover.
+  #E3EEF5   Blue wash      Tinted card fill.
+  #B8722C   Amber          Human moments — symptom lines, "worth knowing".
+  #F6E8D6   Amber wash     Tinted card fill.
+  #2E7D5B   Green          "Open now" and "covered" states only.
+  #E1F0E8   Green wash     Tick circles, open pill.
+
+  LINES
+  #E2DACE   Line           All hairlines and card borders. 1px.
+  #D8E0E4   Line cool      Hairlines on cool bands.
+
+  DARK SECTIONS ("ink sections")
+  Background #151A1C · headings #FFFFFF · body #C9D3D7 · muted #8496A0
+  · eyebrow #7FBBDC · hairline #2A3237
+
+  RULE: blue is for things you can do. If it is not clickable it is not blue.
+  RULE: never introduce a colour that is not on this list.
+
+
+0.3 · TYPOGRAPHY
+────────────────────────────────────────────────────────────────────────────────
+  TYPEFACE   Anek Tamil, by Ek Type (Mumbai). SIL Open Font Licence.
+             One superfamily covering Latin AND Tamil, so the site reads as one
+             thing in both languages rather than two fonts joined at the seam.
+             Self-hosted as woff2. Never loaded from Google's CDN.
+             Weights used: 400, 500, 600, 700. Nothing else.
+
+  SCALE      Display 1    clamp(38px, 5.4vw, 63px)   700   tracking −0.028em
+             Display 2    clamp(32px, 5.2vw, 54px)   700   tracking −0.028em
+             H2           clamp(28px, 4.2vw, 44px)   700   tracking −0.028em
+             H3           clamp(21px, 2.5vw, 27px)   700   tracking −0.02em
+             H4           19px                        600   tracking −0.012em
+             Lede         clamp(19px, 2.1vw, 23px)   400
+             Body         18px                        400   line-height 1.66
+             Small        16.5px                      400
+             Caption      15px                        400   colour #6B7A81
+             Eyebrow      14px  600  uppercase  tracking +0.1em  colour blue
+
+  THE FLOOR  18px body. This is not negotiable and not a preference. The primary
+             reader is over fifty-five and often reading outdoors. Any request to
+             reduce it should be refused with that reason.
+
+  MEASURE    Body paragraphs cap at 64ch. Ledes at roughly 46ch. Headlines are
+             constrained in `ch` ON THE HEADING ELEMENT ITSELF, never on a parent
+             div — `ch` resolves against the element's own font-size, so a `ch`
+             limit on an 18px wrapper collapses a 63px headline into a narrow
+             column. This is the single most common mistake in this layout.
+
+  HEADINGS   text-wrap: balance on every heading.
+
+
+0.4 · THE APERTURE — THE MOTIF
+────────────────────────────────────────────────────────────────────────────────
+Concentric circles, drawn as SVG, stroke only, 1px, colour #E2DACE. One ring in
+the set is #0B5C8A at 45% opacity. The innermost ring may be filled #E3EEF5.
+
+  WHERE IT APPEARS
+  · Behind the home hero, right side, large, partly off-canvas.
+  · Bleeding off one corner of every page hero.
+  · Top-right corner of every service card, small, clipped by the card edge.
+  · Bleeding off dark sections at very low opacity (0.14–0.2).
+  · In the footer, bottom-right, very low opacity.
+
+  RULES
+  · Always `position:absolute`, `pointer-events:none`, `z-index:0`.
+  · Always inside a container with `overflow:hidden` so it clips cleanly.
+  · Always `aria-hidden="true"` — it carries no information.
+  · It is never the subject of a section. It sits behind content, never over it.
+  · It never animates on scroll except the one instance in 0.5.
+
+
+0.5 · MOTION
+────────────────────────────────────────────────────────────────────────────────
+  FOCUS-PULL — the only entrance animation on the site.
+    from:  opacity 0 · blur 9px · translateY 22px · scale 0.985
+    to:    opacity 1 · blur 0   · translateY 0    · scale 1
+    timing 0.85s  cubic-bezier(.22,.68,.28,1)
+    stagger 0.09s per step, maximum five steps
+    trigger IntersectionObserver, rootMargin 0 0 −12% 0, threshold 0.08, once
+
+    APPLY TO: headings, cards, tiles, list blocks, images, buttons rows.
+    NEVER APPLY TO: long body paragraphs. Blurring text somebody is trying to
+    read is user-hostile and expensive on mid-range GPUs.
+
+  HERO APERTURE — home page only. Rings scale from 0.35 to 1 with opacity 0 to 1
+  on load, 1.5s, staggered 0.1s per ring from outside in. The eye opens once.
+
+  MICRO
+    Buttons          translateY(−2px) on hover, 0.25s
+    Card hover       translateY(−5px) + deeper shadow, 0.35s
+    Arrow links      gap 9px → 15px on hover
+    Service aperture scale 1.12 + rotate 8deg on card hover
+    Open-now dot     2.6s pulse ring, infinite
+
+  OFF SWITCH
+    Under prefers-reduced-motion: reduce — every animation and transition is
+    disabled, the focus-pull resolves instantly, the pulse stops.
+    If JavaScript never runs, a .no-js rule shows all content immediately.
+    A 2.6s timeout reveals anything the observer missed. The page can never
+    end up blank.
+
+  NOT USED, DELIBERATELY
+    Carousels. Smooth-scroll hijacking (Lenis and similar). Parallax.
+    Any hover-dependent effect that carries meaning. Page-load overlays.
+    All four are wrong for this audience and three of the four are what the
+    competing chains do.
+
+
+0.6 · LAYOUT AND SPACING
+────────────────────────────────────────────────────────────────────────────────
+  Container      max-width 1180px, centred
+  Page gutter    clamp(20px, 5vw, 40px)
+  Section pad    clamp(64px, 11vw, 136px) top and bottom
+  Grid gap       clamp(22px, 3.4vw, 40px)
+  Split gap      clamp(32px, 5vw, 80px)
+  Card padding   clamp(26px, 3.4vw, 38px)
+  Card radius    26px large, 14px small, 999px pills
+  Button height  58px minimum
+  Touch target   48px minimum, 8px apart
+
+  BREAKPOINTS
+  1040px   navigation collapses to a menu button
+   900px   home hero becomes one column, aperture becomes a background
+   860px   all two- and three-column grids become one column
+           sticky call bar appears
+   480px   four-column grids become one column
+   430px   brand sub-label hides, brand mark shrinks
+
+  BAND RHYTHM
+  Sections alternate ground → warm → ground → cool, so no two identical bands
+  ever touch. Dark "ink" sections are used sparingly — at most one per page,
+  always as the closing call to action or the single strongest statement.
+
+
+0.7 · COMPONENTS USED ACROSS PAGES
+────────────────────────────────────────────────────────────────────────────────
+  EYEBROW        A 26px blue rule, then 14px uppercase blue label.
+                 Opens most sections. Never more than one per section.
+
+  OPEN-NOW PILL  Rounded pill, green wash, pulsing dot, live text.
+                 Computed in real time from the clinic's IST offset so a visitor
+                 abroad sees the truth. Turns amber wash when closed.
+                 Sessions: Mon–Sat 10:00–14:00 and 17:00–19:00. Sunday closed.
+
+  PRIMARY BUTTON Blue fill, white text, 999px radius, 58px tall, icon + label.
+
+  GHOST BUTTON   1.5px #E2DACE border, translucent white fill, ink text.
+
+  ARROW LINK     Blue, 600 weight, arrow icon, gap opens on hover.
+
+  CARD           White, 26px radius, 1px #E2DACE border, soft shadow.
+                 Variants: tinted blue (--tint), tinted amber (--warm).
+
+  SERVICE CARD   Card + amber symptom line + H3 + body + arrow link pinned to
+                 the bottom so a row of cards aligns. Aperture in the corner.
+
+  ROW LIST       Hairline-separated rows. Optional blue tabular number at left,
+                 H4 title, body beneath. Used for steps and for Q&A.
+
+  TICK           30px circle, green wash, green check. Used on scheme lists.
+
+  FACT STRIP     Four cells, hairline-divided, inside one rounded border.
+                 Large number, caption beneath.
+
+
+0.8 · VOICE
+────────────────────────────────────────────────────────────────────────────────
+  · Plain words. "Cloudy, faded or washed out", not "posterior subcapsular".
+  · Second person. "You come in the morning and go home the same evening."
+  · Never "world-class", "state-of-the-art", "best in class", "cutting-edge".
+    Specificity beats superlatives: name the procedure, the surgeon, the year.
+  · Symptoms before procedure names. Nobody arrives knowing their diagnosis.
+  · Money is discussed openly and first, because that is what people are afraid
+    to ask about.
+  · No exclamation marks. No emoji. No stock-photo optimism.
+
+
+0.9 · BILINGUAL BEHAVIOUR
+────────────────────────────────────────────────────────────────────────────────
+  Every translatable string is two sibling spans:
+      <span lang="en">English</span><span lang="ta" class="ta">தமிழ்</span>
+  The <html> element carries data-lang="en" or "ta". CSS hides the other.
+  The EN/த control sits in the header, persists to localStorage, and switches
+  the entire interface — navigation, buttons, labels, body — not just articles.
+  Tamil is set at weight 500 to optically match Latin 400 at the same size.
+
+  STATUS: headings, navigation, buttons and the critical blocks are translated.
+  Remaining body copy needs a Tamil-speaking medical copywriter. Do not machine-
+  translate medical content.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 1 · THE SHARED SHELL — BUILD ONCE, IDENTICAL ON ALL NINE PAGES
+════════════════════════════════════════════════════════════════════════════════
+
+1.1 · HEADER
+────────────────────────────────────────────────────────────────────────────────
+Sticky to the top. Background rgba(251,248,243,.86) with a 14px backdrop blur.
+No border until the page scrolls past 10px, then a 1px #E2DACE bottom border and
+a very soft shadow fade in. Minimum height 78px.
+
+  LEFT      Aperture mark, 38px — three rings plus a filled blue pupil with a
+            small off-white highlight at upper-left.
+            "Shri Andavar" 18px/700 ink
+            "EYE CARE & RETINA CENTRE" 11.5px/600 uppercase, +0.13em, #6B7A81
+
+  CENTRE    Treatments · Our Surgeon · Schemes · Visit Us · About
+            16.5px/500. Hover fills a blue-tinted pill. Current page is blue/600.
+
+  RIGHT     EN / த toggle. Pill with a 1.5px border; the active side is blue
+            filled with white text. 46×40px per side.
+
+  UNDER 1040px
+            Navigation becomes a full-width panel that slides down from the
+            header. Order in the bar becomes: brand (flexible, truncates with
+            ellipsis) · language toggle · menu button. The brand must be allowed
+            to shrink — if it is `flex:0 0 auto` it pushes the menu button off
+            the screen. Menu button is 48×48, bordered, and its bars cross into
+            an X when open.
+
+
+1.2 · STICKY CALL BAR — PHONES ONLY, UNDER 860px
+────────────────────────────────────────────────────────────────────────────────
+Fixed to the bottom of the viewport on every page, at every scroll depth.
+Two buttons, equal width, 56px tall, 16px text, nowrap.
+  [ ☎ Call the hospital ]   [ ◎ Directions ]
+Background rgba(251,248,243,.94), 16px blur, 1px top border, safe-area padding.
+Body gets 84px bottom padding so the bar never covers content.
+
+Outside consulting hours the call button relabels itself — "Call — opens 5:00 PM"
+— rather than dialling a room with nobody in it.
+
+
+1.3 · FOOTER
+────────────────────────────────────────────────────────────────────────────────
+Dark ink section. A large aperture bleeds off the bottom-right at 14% opacity.
+Four columns, collapsing to two at 860px and one at 520px.
+
+  COL 1   "Shri Andavar" 20px/700 white
+          "EYE CARE & RETINA CENTRE" 11.5px uppercase tracked
+          Then, in sentence case — NOT tracked or uppercased:
+          EXACT: "Cataract and retina care in Pollachi since 2013, by one surgeon
+          who sees you from the first examination to the last follow-up."
+
+  COL 2   TREATMENTS — Cataract surgery · Retina care · Diabetic eye care ·
+          Glaucoma · Eye check-up
+
+  COL 3   THE HOSPITAL — Our surgeon · About · Patient stories ·
+          Schemes & insurance · Eye health tips
+
+  COL 4   VISIT US
+          No. 73, Palladam Road, Opposite LMHSS School,
+          T. Kottampatti, Pollachi 642002
+          04259 221 000  (bold, white, tel: link)
+          94420 56767    (tel: link)
+          Get directions →
+          Mon–Sat · 10:00 AM – 2:00 PM and 5:00 – 7:00 PM. Sunday closed.
+
+  BOTTOM  Hairline #2A3237, then © year, full hospital name, "Pollachi, Tamil Nadu"
+
+  WATCH OUT: scope the small-caps brand styling to the DIRECT child span only.
+  If it targets all spans inside the column it will upper-case the paragraph.
+
+
+1.4 · SHELL WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+
+  DESKTOP ─ 1440px
+  ┌──────────────────────────────────────────────────────────────────────────┐
+  │ ◎ Shri Andavar        Treatments  Our Surgeon  Schemes  Visit Us  About   │ ← sticky
+  │   EYE CARE & RETINA CENTRE                                     [EN][ த ]  │   78px
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │                                                                          │
+  │                        ·  P A G E   C O N T E N T  ·                     │
+  │                                                                          │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ ██ DARK INK FOOTER ██                                          ╭──╮      │
+  │ Shri Andavar      TREATMENTS      THE HOSPITAL     VISIT US   ╭╯  ╰╮     │
+  │ EYE CARE & …      Cataract        Our surgeon      No. 73,…  │ ◉  │ ←    │
+  │ Cataract and      Retina care     About            04259…     ╰╮  ╭╯ aperture
+  │ retina care in    Diabetic        Patient stories  94420…      ╰──╯  14% │
+  │ Pollachi since…   Glaucoma        Schemes          Directions →         │
+  │                   Eye check-up    Eye health       Mon–Sat 10–2, 5–7     │
+  │ ──────────────────────────────────────────────────────────────────────   │
+  │ © 2026 Shri Andavar Eye Care and Retina Centre      Pollachi, Tamil Nadu │
+  └──────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE ─ 390px
+  ┌────────────────────────────┐
+  │ ◎ Shri Andavar  [EN][த] ☰ │ ← sticky, brand truncates
+  ├────────────────────────────┤
+  │                            │
+  │      PAGE CONTENT          │
+  │      (single column)       │
+  │                            │
+  ├────────────────────────────┤
+  │ ██ DARK FOOTER ██          │
+  │ Shri Andavar               │
+  │ TREATMENTS  │ THE HOSPITAL │ ← 2 cols at 860, 1 col at 520
+  │ VISIT US    │ …           │
+  ├────────────────────────────┤
+  │ [ ☎ Call the hospital ]    │ ← FIXED. Always visible.
+  │ [ ◎ Directions        ]    │   Two buttons side by side.
+  └────────────────────────────┘
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 2 · PAGE 1 — HOME  (index.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+Nine out of ten first-time visitors will see only this page, so it must be a
+complete answer on its own. The reader is worried, on a phone, often researching
+for a parent. In order, they want to know: are you open, who will see me, how do
+I reach you. The page answers in that order. Seven sections. The single job is to
+make the phone call happen.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — HERO                                        band: GROUND #FBF8F3
+  Two columns on desktop (1.06fr / 0.94fr), one column under 900px.
+  Left column, in order:
+    · Open-now pill (live)
+    · H1, Display 1, max-width 15ch ON THE H1
+      EXACT: "Cataract and retina care in Pollachi, by the surgeon who
+      examines you."
+      TAMIL: "பொள்ளாச்சியில் கண்புரை மற்றும் விழித்திரை சிகிச்சை."
+    · Lede, max-width 46ch
+      EXACT: "Dr. A. Raghuram has looked after this district's eyes since 2013.
+      He examines you, he operates, and he is the one who sees you at your
+      follow-up."
+    · Buttons: [Call 04259 221 000] primary · [Get directions] ghost
+    · Caption, max-width 54ch
+      EXACT: "Opposite LMHSS School, Palladam Road. Walk in, or call and we will
+      give you a time."
+  Right column: the hero aperture, six rings, max 520px square, opens on load.
+  Under 900px the aperture becomes a background element at 55% opacity,
+  positioned off the top-right, behind the text.
+  Focus-pull stagger: pill (instant) → H1 → lede → buttons → caption.
+
+  SECTION 2 — THE SURGEON                                 band: WARM #F5EFE5
+  Aperture bleeding off the bottom-left, 540px, 50% opacity.
+  Split, wide left (1.15fr / 0.85fr).
+    LEFT   Eyebrow "Your surgeon"
+           H2 Display 2: "Dr. A. Raghuram"
+           Lede EXACT: "At a large chain you are seen by whoever is on duty that
+           day. Here there is one surgeon, and he will still be here at your
+           follow-up next year."
+           Arrow link → our-surgeon.html "More about Dr. Raghuram"
+    RIGHT  White card. Label "QUALIFICATIONS, IN PLAIN WORDS".
+           Four hairline rows, each an H4 plus one plain-language caption:
+             MBBS, DO — "Medical degree, then a diploma in ophthalmology —
+                         eyes only."
+             DNB (Ophthalmology) — "The national board qualification for eye
+                         specialists in India."
+             FICO (United Kingdom) — "Fellowship of the International Council
+                         of Ophthalmology."
+             FRCS (Glasgow) — "A surgical fellowship of the Royal College of
+                         Surgeons — unusual in a town this size."
+           THE POINT: credentials that only impress other doctors are wasted.
+           Every one gets a sentence a layperson understands.
+
+  SECTION 3 — WHAT WE TREAT                               band: GROUND
+  Eyebrow "What we treat". H2 EXACT: "Start with what you have noticed."
+  Four service cards, 2×2 desktop, 1 column under 860px.
+  Each card: amber symptom line → H3 procedure name → body → "Read more" pinned
+  to the card bottom. Aperture clipped in the top-right corner.
+    1  "Things look cloudy, faded or washed out" / Cataract surgery
+       → cataract-surgery.html
+    2  "A shadow, floaters or sudden blurring" / Retina care
+    3  "You have diabetes and have not had your eyes checked" / Diabetic eye care
+    4  "Headaches, or glaucoma in the family" / Glaucoma & check-ups
+  Centred arrow link beneath: "See everything we treat" → treatments.html
+
+  SECTION 4 — COST                                        band: COOL #EFF3F5
+  Split, equal columns.
+    LEFT   Eyebrow "Cost"
+           H2 EXACT: "Ask about the money. Everybody does."
+           Lede EXACT: "It is the question people are most embarrassed to ask and
+           most worried about. Here are the schemes we accept, stated plainly."
+           Ghost button → schemes.html
+    RIGHT  White card, three tick rows:
+           · Chief Minister's Comprehensive Health Insurance Scheme —
+             "CMCHIS — bring your scheme card and Aadhaar."
+           · Pensioners Health Scheme —
+             "For retired government employees and their dependants."
+           · Star Health Insurance —
+             "Cashless, subject to your policy terms."
+           Hairline, then caption: "Not sure whether yours is covered? Call and
+           ask — it takes a minute and costs nothing."
+
+  SECTION 5 — FACT STRIP                                  band: GROUND
+  One rounded bordered strip, four hairline-divided cells.
+    13 yrs  — In Pollachi since 2013
+    1       — Surgeon, from first visit to last follow-up
+    2       — Sessions a day — morning and evening
+    3       — Schemes and insurances accepted
+  The number reads first and the label completes it. Do not reverse this.
+
+  SECTION 6 — IN THEIR WORDS                              band: WARM
+  Split, vertically centred.
+    LEFT   Eyebrow "In their words"
+           Pull quote, 22–34px, 600, max-width 20ch, hanging opening quote mark:
+           EXACT: "Patients must feel safe and reassured that they will be
+           treated with the utmost care."
+           Attribution: Dr. A. Raghuram
+    RIGHT  Lede EXACT: "Most people who come here were sent by someone they trust
+           — a neighbour, a relative, the doctor down the road. That is how a
+           practice lasts thirteen years in a town this size."
+           Arrow link → patient-stories.html
+
+  SECTION 7 — VISIT                                       band: INK #151A1C
+  Aperture bleeding off the right at 20% opacity. Split.
+    LEFT   Eyebrow "Come and see us" (in #7FBBDC)
+           H2 EXACT: "Opposite LMHSS School, on Palladam Road."
+           Lede EXACT: "In a town, the landmark does more work than the postcode.
+           If you know the school, you know where we are."
+           Buttons: [Open in Maps] white · [Visiting details] outlined
+    RIGHT  Bordered translucent panel: Address · Consulting hours · Telephone
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+
+  DESKTOP ─ 1440px
+  ┌──────────────────────────────────────────────────────────────────────────┐
+  │ HEADER (sticky)                                                          │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ GROUND                                                                   │
+  │  ● Open now · closes 2:00 PM                          ╭──────────╮       │
+  │                                                     ╭─╯          ╰─╮     │
+  │  Cataract and retina care in                       │  ╭────────╮   │     │
+  │  Pollachi, by the surgeon                          │ ╱    ◉     ╲  │  ←  │
+  │  who examines you.                                 │  ╰────────╯   │  hero
+  │                                                     ╰─╮          ╭─╯ aperture
+  │  Dr. A. Raghuram has looked after this                ╰──────────╯  opens
+  │  district's eyes since 2013…                                         on load
+  │                                                                          │
+  │  [ ☎ Call 04259 221 000 ]  [ ◎ Get directions ]                          │
+  │  Opposite LMHSS School, Palladam Road. Walk in, or call…                 │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ WARM                                    ┌────────────────────────────┐   │
+  │  ── YOUR SURGEON                        │ QUALIFICATIONS, PLAIN WORDS│   │
+  │                                         │ ────────────────────────── │   │
+  │  Dr. A. Raghuram                        │ MBBS, DO                   │   │
+  │                                         │ Medical degree, then a…    │   │
+  │  At a large chain you are seen by       │ ────────────────────────── │   │
+  │  whoever is on duty that day. Here      │ DNB (Ophthalmology)        │   │
+  │  there is one surgeon…                  │ The national board…        │   │
+  │                                         │ ────────────────────────── │   │
+  │  More about Dr. Raghuram →              │ FICO (UK)  …               │   │
+  │ ╭───╮                                   │ ────────────────────────── │   │
+  │╱ ◉  ╲ ← aperture bleeds off             │ FRCS (Glasgow)  …          │   │
+  │╲    ╱   bottom-left                     └────────────────────────────┘   │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ GROUND                                                                   │
+  │  ── WHAT WE TREAT                                                        │
+  │  Start with what you have noticed.                                       │
+  │  ┌─────────────────────────╮◉╮ ┌─────────────────────────╮◉╮            │
+  │  │ Things look cloudy…      │  │ A shadow, floaters…      │              │
+  │  │ Cataract surgery         │  │ Retina care              │              │
+  │  │ A day-care procedure…    │  │ Retinal detachment…      │              │
+  │  │ Read more →              │  │ Read more →              │  ← link      │
+  │  └──────────────────────────┘  └──────────────────────────┘    pinned    │
+  │  ┌─────────────────────────╮◉╮ ┌─────────────────────────╮◉╮    to       │
+  │  │ You have diabetes…       │  │ Headaches, or glaucoma…  │    bottom    │
+  │  │ Diabetic eye care        │  │ Glaucoma & check-ups     │              │
+  │  │ Read more →              │  │ Read more →              │              │
+  │  └──────────────────────────┘  └──────────────────────────┘              │
+  │                    See everything we treat →                             │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ COOL                                                                     │
+  │  ── COST                                ┌────────────────────────────┐   │
+  │  Ask about the money.                   │ ✓ Chief Minister's Compre… │   │
+  │  Everybody does.                        │   CMCHIS — bring your card │   │
+  │                                         │ ────────────────────────── │   │
+  │  It is the question people are most     │ ✓ Pensioners Health Scheme │   │
+  │  embarrassed to ask…                    │   For retired government…  │   │
+  │                                         │ ────────────────────────── │   │
+  │  [ Schemes & insurance → ]              │ ✓ Star Health Insurance    │   │
+  │                                         │ ────────────────────────── │   │
+  │                                         │ Not sure whether yours is… │   │
+  │                                         └────────────────────────────┘   │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ GROUND                                                                   │
+  │  ┌──────────┬──────────┬──────────┬──────────┐                          │
+  │  │ 13 yrs   │ 1        │ 2        │ 3        │                          │
+  │  │ In       │ Surgeon, │ Sessions │ Schemes  │                          │
+  │  │ Pollachi │ first to │ a day —  │ and ins- │                          │
+  │  │ since    │ last     │ morning  │ urances  │                          │
+  │  │ 2013     │ follow-up│ & evening│ accepted │                          │
+  │  └──────────┴──────────┴──────────┴──────────┘                          │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ WARM                                                                     │
+  │  ── IN THEIR WORDS                    Most people who come here were     │
+  │                                       sent by someone they trust — a     │
+  │  "Patients must feel                  neighbour, a relative, the doctor  │
+  │   safe and reassured                  down the road…                     │
+  │   that they will be                                                      │
+  │   treated with the                    Read patient stories →             │
+  │   utmost care."                                                          │
+  │  Dr. A. Raghuram                                                         │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ ██ INK ██                                                                │
+  │  ── COME AND SEE US                   ┌────────────────────────────┐     │
+  │                                       │ Address                    │ ╭─╮ │
+  │  Opposite LMHSS School,               │ No. 73, Palladam Road…     │╱ ◉ ╲│
+  │  on Palladam Road.                    │                            │╲   ╱│
+  │                                       │ Consulting hours           │ ╰─╯ │
+  │  In a town, the landmark does more    │ Mon–Sat 10–2 · 5–7         │  ↑  │
+  │  work than the postcode…              │ Sunday closed              │ 20% │
+  │                                       │                            │     │
+  │  [ ◎ Open in Maps ] [ Details → ]     │ Telephone  04259 221 000   │     │
+  │                                       └────────────────────────────┘     │
+  ├──────────────────────────────────────────────────────────────────────────┤
+  │ FOOTER                                                                   │
+  └──────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE ─ 390px
+  ┌────────────────────────────┐
+  │ HEADER  ◎ Shri… [EN][த] ☰ │
+  ├────────────────────────────┤
+  │ ● Open now · closes 2:00PM │   aperture sits BEHIND this
+  │                            │   block at 55%, off top-right
+  │ Cataract and retina        │
+  │ care in Pollachi, by       │
+  │ the surgeon who            │
+  │ examines you.              │
+  │                            │
+  │ Dr. A. Raghuram has        │
+  │ looked after this          │
+  │ district's eyes since…     │
+  │                            │
+  │ [ ☎ Call 04259 221 000 ]   │  full width
+  │ [ ◎ Get directions     ]   │  stacked
+  │ Opposite LMHSS School…     │
+  ├────────────────────────────┤
+  │ WARM                       │
+  │ ── YOUR SURGEON            │
+  │ Dr. A. Raghuram            │
+  │ At a large chain…          │
+  │ More about Dr. Raghuram →  │
+  │ ┌────────────────────────┐ │
+  │ │ QUALIFICATIONS…        │ │
+  │ │ MBBS, DO               │ │
+  │ │ DNB · FICO · FRCS      │ │
+  │ └────────────────────────┘ │
+  ├────────────────────────────┤
+  │ ── WHAT WE TREAT           │
+  │ Start with what you        │
+  │ have noticed.              │
+  │ ┌──────────────────────╮◉╮ │
+  │ │ Cataract surgery     │   │  cards stack
+  │ └──────────────────────┘   │  1 per row
+  │ ┌──────────────────────╮◉╮ │
+  │ │ Retina care          │   │
+  │ └──────────────────────┘   │
+  │ ┌──────────────────────╮◉╮ │
+  │ │ Diabetic eye care    │   │
+  │ └──────────────────────┘   │
+  │ ┌──────────────────────╮◉╮ │
+  │ │ Glaucoma & check-ups │   │
+  │ └──────────────────────┘   │
+  │   See everything →         │
+  ├────────────────────────────┤
+  │ COOL — Cost / schemes card │
+  ├────────────────────────────┤
+  │ ┌──────────┬─────────────┐ │  fact strip
+  │ │ 13 yrs   │ 1           │ │  2×2 at 860
+  │ ├──────────┼─────────────┤ │  1 col at 440
+  │ │ 2        │ 3           │ │
+  │ └──────────┴─────────────┘ │
+  ├────────────────────────────┤
+  │ WARM — quote, then story   │
+  ├────────────────────────────┤
+  │ ██ INK ██ — Visit block    │
+  ├────────────────────────────┤
+  │ FOOTER                     │
+  ├────────────────────────────┤
+  │ [ ☎ Call the hospital ]    │ ← FIXED
+  │ [ ◎ Directions        ]    │
+  └────────────────────────────┘
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· The H1 constraint is 15ch and it belongs ON THE H1. Putting it on the wrapper
+  collapses the headline into a nine-line column.
+· The hero aperture is decorative: aria-hidden, never announced.
+· The open-now pill is the first thing in the DOM after the header. It answers
+  the first question a patient has.
+· Section 7 is the only dark section on this page. Do not add another.
+
+════════════════════════════════════════════════════════════════════════════════
+PART 3 · PAGE 2 — OUR SURGEON  (our-surgeon.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+This is the page that converts the adult child researching on a parent's behalf.
+It is also the one page no chain can replicate. Four sections. Its job is to turn
+a list of post-nominals into a person you would trust with your mother's eyes,
+and to remove the fear of a first visit by describing exactly what happens.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture bleeding off the top-right, 520px, 50% opacity.
+  Breadcrumb: Home / Our surgeon
+  H1 Display 1, max-width 16ch: "Dr. A. Raghuram"
+  Lede EXACT: "MBBS · DO · DNB (Ophthalmology) · FICO (UK) · FRCS (Glasgow)"
+
+  SECTION 2 — WHO HE IS                                   band: GROUND (no top pad)
+  Split, wide left.
+    LEFT  Three stacked paragraphs, 34px apart:
+      1 (lede) EXACT: "Dr. Raghuram founded this practice in 2013 and has run it
+        since. He performs the examinations, he performs the surgery, and he
+        conducts the follow-ups himself."
+      2 EXACT: "That continuity is not a small thing. A cataract operation is a
+        conversation before it is a procedure — about what you will be able to
+        see afterwards, what lens suits the life you actually lead, and what the
+        recovery will really be like. Those conversations work better when the
+        person having them with you is the person holding the instrument."
+      3 EXACT: "His specialist interest is the retina — which is why the hospital
+        carries 'and Retina Centre' in its name — alongside a high volume of
+        cataract surgery for patients across Pollachi and the villages around it."
+    RIGHT Blue-tinted card. Eyebrow "What this means for you". Three blocks:
+      · One face, start to finish — "You will not have to explain your history
+        again to a new doctor at each visit."
+      · Surgery decided with you — "Lens options and timing are explained in
+        plain Tamil or English before anything is booked."
+      · Follow-up with the same surgeon — "The person who operated is the person
+        who checks the result."
+
+  SECTION 3 — A FIRST VISIT                               band: WARM
+  Eyebrow "A first visit". H2 EXACT: "What actually happens when you come in."
+  Five numbered hairline rows, blue tabular numerals:
+    01 You arrive — "Walk in during consulting hours, or call ahead and we will
+       give you a time. Bring your glasses, any previous prescriptions, and your
+       scheme card if you have one."
+    02 Vision and pressure — "An optometrist checks your vision and the pressure
+       inside your eye. This part is quick and nothing touches the eye itself."
+    03 Drops, then a wait — "If the retina needs looking at, drops widen the
+       pupil. They take about thirty minutes to work and leave your vision blurry
+       for a few hours — so do not plan to drive yourself home."
+    04 The examination — "Dr. Raghuram examines both eyes and explains what he
+       finds, in the language you are most comfortable in."
+    05 What next — "If nothing needs doing, you are told so plainly. If something
+       does, you will know what it costs and what your scheme covers before you
+       leave."
+
+  SECTION 4 — CLOSING CALL                                band: GROUND
+  Centred, max-width 44ch.
+  H2 EXACT: "Come and have your eyes looked at."
+  Lede EXACT: "No appointment is needed. If you would rather have a set time,
+  call and we will arrange one."
+  Buttons centred: [Call 04259 221 000] primary · [How to find us] ghost
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP                                    MOBILE ─ 390px
+  ┌───────────────────────────────────┐     ┌────────────────────────────┐
+  │ HEADER                            │     │ HEADER              [EN]☰ │
+  ├───────────────────────────────────┤     ├────────────────────────────┤
+  │ GROUND              ╭──────╮      │     │ Home / Our surgeon         │
+  │ Home / Our surgeon ╱   ◉    ╲  ←  │     │                            │
+  │                    ╲       ╱ 50%  │     │ Dr. A. Raghuram            │
+  │ Dr. A. Raghuram      ╰──────╯     │     │                            │
+  │ MBBS · DO · DNB · FICO · FRCS     │     │ MBBS · DO · DNB ·          │
+  ├───────────────────────────────────┤     │ FICO (UK) · FRCS           │
+  │ Dr. Raghuram        ┌───────────┐ │     ├────────────────────────────┤
+  │ founded this        │ TINT CARD │ │     │ Dr. Raghuram founded this  │
+  │ practice in 2013…   │ ──────────│ │     │ practice in 2013…          │
+  │                     │ WHAT THIS │ │     │                            │
+  │ That continuity     │ MEANS FOR │ │     │ That continuity is not a   │
+  │ is not a small      │ YOU       │ │     │ small thing…               │
+  │ thing. A cataract   │           │ │     │                            │
+  │ operation is a      │ One face, │ │     │ His specialist interest…   │
+  │ conversation…       │ start to  │ │     │ ┌────────────────────────┐ │
+  │                     │ finish    │ │     │ │ TINT CARD              │ │
+  │ His specialist      │           │ │     │ │ WHAT THIS MEANS FOR YOU│ │
+  │ interest is the     │ Surgery   │ │     │ │ One face, start to…    │ │
+  │ retina…             │ decided   │ │     │ │ Surgery decided with…  │ │
+  │                     │ with you  │ │     │ │ Follow-up with the…    │ │
+  │                     │           │ │     │ └────────────────────────┘ │
+  │                     │ Follow-up │ │     ├────────────────────────────┤
+  │                     │ with the  │ │     │ WARM                       │
+  │                     │ same…     │ │     │ ── A FIRST VISIT           │
+  │                     └───────────┘ │     │ What actually happens      │
+  ├───────────────────────────────────┤     │ when you come in.          │
+  │ WARM                              │     │ ────────────────────────── │
+  │ ── A FIRST VISIT                  │     │ 01 You arrive              │
+  │ What actually happens when you    │     │    Walk in during…         │
+  │ come in.                          │     │ ────────────────────────── │
+  │ ─────────────────────────────────  │     │ 02 Vision and pressure     │
+  │ 01  You arrive                    │     │ ────────────────────────── │
+  │     Walk in during consulting…    │     │ 03 Drops, then a wait      │
+  │ ─────────────────────────────────  │     │ ────────────────────────── │
+  │ 02  Vision and pressure           │     │ 04 The examination         │
+  │     An optometrist checks…        │     │ ────────────────────────── │
+  │ ─────────────────────────────────  │     │ 05 What next               │
+  │ 03  Drops, then a wait            │     ├────────────────────────────┤
+  │ ─────────────────────────────────  │     │ Come and have your         │
+  │ 04  The examination               │     │ eyes looked at.            │
+  │ ─────────────────────────────────  │     │ [ ☎ Call ]  [ Find us ]    │
+  │ 05  What next                     │     ├────────────────────────────┤
+  ├───────────────────────────────────┤     │ FOOTER                     │
+  │       Come and have your          │     ├────────────────────────────┤
+  │       eyes looked at.             │     │ [ ☎ Call ] [ ◎ Directions ]│ fixed
+  │  [ ☎ Call ]  [ How to find us → ] │     └────────────────────────────┘
+  ├───────────────────────────────────┤
+  │ FOOTER                            │
+  └───────────────────────────────────┘
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· No dark section on this page. The tone stays warm throughout.
+· The numbered rows are a sequence, so they are numbered. Do not number lists
+  elsewhere that are not sequences.
+· When the surgeon's portrait exists it goes at the top of Section 2, left
+  column, 1:1 crop, 26px radius. Nothing else needs to change to accommodate it.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 4 · PAGE 3 — TREATMENTS  (treatments.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+A hub. Its only job is to route. The organising principle is the reason the page
+exists: patients search for symptoms, not procedures, so every entry leads with
+what the person noticed, in amber, above the medical name. Three sections.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture top-right, 470px, 50%.
+  Breadcrumb: Home / Treatments
+  H1 max-width 15ch: "What we treat"
+  Lede EXACT: "Listed by what you have noticed rather than by its medical name —
+  because nobody arrives knowing they have posterior subcapsular cataract."
+
+  SECTION 2 — THE SIX                                     band: GROUND
+  Six service cards, 2 columns desktop, 1 under 860px. Identical anatomy to the
+  home page cards so the pattern is recognised.
+    1 "Things look cloudy, faded, or washed out" / Cataract surgery
+      "The lens inside your eye has clouded. It is replaced with a clear
+      artificial one in a day-care procedure — in by morning, home by evening."
+      → cataract-surgery.html
+    2 "A shadow, floaters, or sudden blurring" / Retina care
+      "Retinal detachment, macular disease and laser treatment. The retina is
+      Dr. Raghuram's specialist interest and the reason for the hospital's name."
+    3 "You have diabetes, and your eyes have not been checked this year" /
+      Diabetic eye care
+      "Diabetes damages the back of the eye long before you notice anything. A
+      yearly screening takes twenty minutes and is the single most useful thing
+      you can do."
+    4 "Glaucoma in the family, or pressure already found" / Glaucoma
+      "Pressure testing, visual field analysis and long-term monitoring. Glaucoma
+      takes sight quietly, which is why regular checks matter more than symptoms."
+    5 "It has simply been a while" / Full eye examination
+      "Vision, pressure, retina and a prescription — all in one sitting, usually
+      under an hour."
+    6 "You need glasses, or your old ones no longer work" / Spectacles & lenses
+      "Testing and dispensing on site, with honest advice about what you need and
+      what you do not."
+
+  SECTION 3 — NOT SURE                                    band: COOL
+  Split, vertically centred.
+    LEFT  H2 EXACT: "Not sure which of these is you?"
+          Lede EXACT: "That is normal, and it is what the first examination is
+          for. Come in, or call and describe what you have noticed — nobody will
+          make you feel foolish for asking."
+    RIGHT Buttons: [Call 04259 221 000] primary · [What it costs →] ghost
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP                                       MOBILE
+  ┌───────────────────────────────────┐        ┌────────────────────────────┐
+  │ HEADER                            │        │ HEADER                     │
+  ├───────────────────────────────────┤        ├────────────────────────────┤
+  │ Home / Treatments   ╭──────╮      │        │ Home / Treatments          │
+  │                    ╱   ◉    ╲     │        │ What we treat              │
+  │ What we treat      ╲       ╱      │        │ Listed by what you have    │
+  │                      ╰──────╯     │        │ noticed rather than…       │
+  │ Listed by what you have noticed…  │        ├────────────────────────────┤
+  ├───────────────────────────────────┤        │ ┌──────────────────────╮◉╮ │
+  │ ┌────────────────╮◉╮ ┌───────────╮◉│        │ │ Things look cloudy…  │   │
+  │ │ Things look     │  │ A shadow, │ │        │ │ Cataract surgery     │   │
+  │ │ cloudy, faded…  │  │ floaters… │ │        │ │ Read more →          │   │
+  │ │ Cataract        │  │ Retina    │ │        │ └──────────────────────┘   │
+  │ │ surgery         │  │ care      │ │        │ ┌──────────────────────╮◉╮ │
+  │ │ Read more →     │  │ Read →    │ │        │ │ Retina care          │   │
+  │ └─────────────────┘  └───────────┘ │        │ └──────────────────────┘   │
+  │ ┌────────────────╮◉╮ ┌───────────╮◉│        │ ┌──────────────────────╮◉╮ │
+  │ │ You have        │  │ Glaucoma  │ │        │ │ Diabetic eye care    │   │
+  │ │ diabetes…       │  │ in the    │ │        │ └──────────────────────┘   │
+  │ │ Diabetic eye    │  │ family…   │ │        │ ┌──────────────────────╮◉╮ │
+  │ │ care            │  │ Glaucoma  │ │        │ │ Glaucoma             │   │
+  │ └─────────────────┘  └───────────┘ │        │ └──────────────────────┘   │
+  │ ┌────────────────╮◉╮ ┌───────────╮◉│        │ ┌──────────────────────╮◉╮ │
+  │ │ It has simply   │  │ You need  │ │        │ │ Full eye examination │   │
+  │ │ been a while    │  │ glasses…  │ │        │ └──────────────────────┘   │
+  │ │ Full eye exam   │  │ Spectacles│ │        │ ┌──────────────────────╮◉╮ │
+  │ └─────────────────┘  └───────────┘ │        │ │ Spectacles & lenses  │   │
+  ├───────────────────────────────────┤        │ └──────────────────────┘   │
+  │ COOL                              │        ├────────────────────────────┤
+  │ Not sure which of    [ ☎ Call ]   │        │ COOL                       │
+  │ these is you?        [ Costs → ]  │        │ Not sure which of these    │
+  │                                   │        │ is you?                    │
+  │ That is normal, and it is what    │        │ [ ☎ Call ]  [ Costs → ]    │
+  │ the first examination is for…     │        ├────────────────────────────┤
+  ├───────────────────────────────────┤        │ FOOTER + fixed call bar    │
+  │ FOOTER                            │        └────────────────────────────┘
+  └───────────────────────────────────┘
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· Card anatomy is identical to the home page. Do not invent a second card style.
+· Only card 1 currently links to a detail page. The other five point back to this
+  hub until their detail pages exist. Build them from PART 5's template.
+· No dark section on this page.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 5 · PAGE 4 — CATARACT SURGERY  (cataract-surgery.html)
+════════════════════════════════════════════════════════════════════════════════
+                  ★ THIS IS THE TEMPLATE FOR ALL TREATMENT PAGES ★
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+The long-tail search engine of the site: written once, ranks for years. It is
+also where fear is dismantled. The structure is fixed — what it is, what happens
+on the day, the choices you will be asked to make, the myths, the call — and the
+other five treatment pages must follow the same five sections in the same order
+so the site teaches the reader how to read it.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture top-right, 470px, 50%.
+  Breadcrumb: Home / Treatments / Cataract surgery
+  H1 max-width 14ch: "Cataract surgery"
+  Lede EXACT: "In by morning, home by evening, seeing better. The most common
+  operation we perform, and the one people worry about most unnecessarily."
+
+  SECTION 2 — WHAT IT ACTUALLY IS                         band: GROUND
+  Split, wide left, vertically centred.
+    LEFT  H2 "What a cataract actually is"
+          EXACT: "Behind your pupil sits a clear lens, about the size of a
+          lentil, that focuses light onto the back of the eye. With age it slowly
+          turns cloudy. Light scatters instead of focusing, and the world looks
+          faded, hazy, or as though you are looking through a dirty window."
+          EXACT: "It is not a growth, it is not a film over the eye, and no drop
+          will clear it. The only treatment that works is to replace the lens —
+          which is a fifteen-minute, day-care procedure."
+    RIGHT ANATOMY DIAGRAM — inline SVG, viewBox 0 0 572 300, line-drawn.
+          A side-on cross-section:
+            · globe, circle, pale blue fill #E3EEF5, 1.4px blue stroke
+            · cornea, a bulging arc on the left
+            · iris, two short strokes meeting the lens
+            · the clouded lens, a vertical ellipse filled amber wash #F6E8D6
+            · the retina, a thick 3px blue arc on the inside right
+            · optic nerve, a short stroke leaving lower right
+          Labels OUTSIDE the globe with hairline leaders:
+            left, right-aligned:  "Cornea" · "Clouded lens"
+            right, left-aligned:  "Retina" + smaller "where the image forms"
+          RULE: no label may cross the globe outline, and no text may pass the
+          viewBox edge. Leave ~30 units of margin inside the viewBox on the side
+          the longest label sits.
+
+  SECTION 3 — THE DAY ITSELF                              band: WARM
+  Eyebrow "The day itself". H2 "What happens, hour by hour."
+  Six numbered hairline rows:
+    01 You arrive in the morning — "Fasting is usually not required — you will be
+       told beforehand if anything is different in your case. Bring someone with
+       you; you will not be able to drive home."
+    02 Drops and preparation — "Drops widen the pupil and numb the eye. There is
+       no injection and no general anaesthetic for a routine cataract."
+    03 The operation — about fifteen minutes — "A very small opening is made, the
+       cloudy lens is broken up and removed, and a clear artificial lens is
+       placed where it was. You are awake, you feel no pain, and there is usually
+       no stitch."
+    04 Rest, then home — "You rest for a short while and go home the same day
+       with a shield over the eye and a schedule of drops."
+    05 The day after — "You come back the next morning so Dr. Raghuram can check
+       the eye. Most people notice the difference by then."
+    06 The weeks after — "Drops continue for a few weeks. Avoid dust, swimming
+       and rubbing the eye. A final prescription for glasses is given once the
+       eye has settled, usually around four weeks."
+
+  SECTION 4 — CHOICES AND MYTHS                           band: GROUND
+  Two cards side by side, equal columns.
+    LEFT — white card. Eyebrow "Lens options".
+      Intro: "The artificial lens is a permanent part of the eye, so the choice
+      is worth a proper conversation. In broad terms:"
+        Monofocal — "Sharp at one distance, usually far. You will still need
+                     reading glasses. Covered by most schemes."
+        Toric     — "Corrects astigmatism at the same time, for eyes that have it."
+        Multifocal— "Aims to reduce dependence on glasses at more than one
+                     distance. Suits some eyes and some lifestyles, not all."
+      Hairline, then: "Which one suits you depends on your eye and on the life
+      you actually lead. Dr. Raghuram will go through it with you before anything
+      is decided."
+    RIGHT — amber-tinted card. Eyebrow "Worth knowing" in amber. Three myths:
+      "Should I wait until it is ripe?" — "That advice is out of date. A cataract
+      does not need to be mature before it is removed, and waiting too long makes
+      surgery harder. The right time is when it starts to interfere with what you
+      want to do."
+      "Will it come back?" — "The cataract itself does not. Some people develop a
+      cloudy film behind the new lens months or years later — that is cleared in
+      a few minutes with a laser, in the clinic, no cutting."
+      "Is it covered?" — "Cataract surgery is covered under the schemes we accept,
+      subject to their terms. Ask us before you decide — see schemes and
+      insurance." (last three words link to schemes.html, blue, 600)
+
+  SECTION 5 — CLOSING CALL                                band: INK
+  Aperture bleeding bottom-left, 560px, 18%.
+  Centred, max-width 46ch.
+  H2 EXACT: "Have it looked at before it starts deciding things for you."
+  Lede EXACT: "Giving up night driving, reading, or the newspaper is not
+  something you have to accept."
+  Buttons: [Call 04259 221 000] white · [Meet the surgeon →] outlined
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ HEADER                                                                 │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ Home / Treatments / Cataract surgery          ╭──────╮                 │
+  │ Cataract surgery                             ╱   ◉    ╲                │
+  │ In by morning, home by evening, seeing…      ╲       ╱                 │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ What a cataract              Cornea ─╮    ╭── Retina                   │
+  │ actually is                          │   ╱    where the image forms    │
+  │                                  ╭───┴──────────╮                      │
+  │ Behind your pupil sits a       ╱ ▌│             ╲                      │
+  │ clear lens, about the size    │  ▌│ (pale blue)  │                     │
+  │ of a lentil, that focuses     │  ▌│              │                     │
+  │ light onto the back…          │  ▌│              ┃  ← retina, 3px      │
+  │                                ╲ ▌│             ╱                      │
+  │ It is not a growth, it is        ╰───┬──────────╯                      │
+  │ not a film over the eye…    Clouded ─╯ (amber ellipse)                 │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ WARM                                                                   │
+  │ ── THE DAY ITSELF                                                      │
+  │ What happens, hour by hour.                                            │
+  │ ──────────────────────────────────────────────────────────────────     │
+  │ 01  You arrive in the morning                                          │
+  │ 02  Drops and preparation                                              │
+  │ 03  The operation — about fifteen minutes                              │
+  │ 04  Rest, then home                                                    │
+  │ 05  The day after                                                      │
+  │ 06  The weeks after                                                    │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ┌───────────────────────────┐  ┌───────────────────────────┐           │
+  │ │ ── LENS OPTIONS           │  │ ── WORTH KNOWING  (amber) │           │
+  │ │ The artificial lens is a  │  │ "Should I wait until it   │           │
+  │ │ permanent part of the eye…│  │  is ripe?"                │           │
+  │ │                           │  │ That advice is out of…    │           │
+  │ │ Monofocal                 │  │                           │           │
+  │ │ Toric                     │  │ "Will it come back?"      │           │
+  │ │ Multifocal                │  │                           │           │
+  │ │ ───────────────────────── │  │ "Is it covered?"          │           │
+  │ │ Which one suits you…      │  │ …see schemes & insurance  │           │
+  │ └───────────────────────────┘  └───────────────────────────┘           │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ██ INK ██                                                              │
+  │ ╭─╮        Have it looked at before it starts                          │
+  │╱ ◉ ╲       deciding things for you.                                    │
+  │╲   ╱       Giving up night driving, reading, or the                    │
+  │ ╰─╯        newspaper is not something you have to accept.              │
+  │ 18%             [ ☎ Call ]   [ Meet the surgeon → ]                    │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ FOOTER                                                                 │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE
+  ┌────────────────────────────┐
+  │ Home / Treatments / Cat…   │
+  │ Cataract surgery           │
+  │ In by morning, home by…    │
+  ├────────────────────────────┤
+  │ What a cataract            │
+  │ actually is                │
+  │ Behind your pupil sits…    │
+  │ It is not a growth…        │
+  │   ╭──────────────╮         │  diagram drops BELOW the
+  │  ╱  eye diagram   ╲        │  text and spans full width
+  │  ╲                ╱        │
+  │   ╰──────────────╯         │
+  ├────────────────────────────┤
+  │ WARM · THE DAY ITSELF      │
+  │ 01 You arrive…             │
+  │ 02 Drops and preparation   │
+  │ 03 The operation…          │
+  │ 04 Rest, then home         │
+  │ 05 The day after           │
+  │ 06 The weeks after         │
+  ├────────────────────────────┤
+  │ ┌────────────────────────┐ │
+  │ │ LENS OPTIONS           │ │  cards stack,
+  │ └────────────────────────┘ │  white then amber
+  │ ┌────────────────────────┐ │
+  │ │ WORTH KNOWING (amber)  │ │
+  │ └────────────────────────┘ │
+  ├────────────────────────────┤
+  │ ██ INK ██ closing call     │
+  ├────────────────────────────┤
+  │ FOOTER + fixed call bar    │
+  └────────────────────────────┘
+
+
+D · PAGE RULES — AND HOW TO CLONE IT
+────────────────────────────────────────────────────────────────────────────────
+To build Retina care, Diabetic eye care, Glaucoma, Full eye examination and
+Spectacles & lenses, copy this page and replace section by section. Keep:
+  · the five sections in this order
+  · the numbered "hour by hour" or "step by step" row list in section 3
+  · one white card and one amber "Worth knowing" card in section 4
+  · the ink closing section, which is the only dark band on the page
+Each page needs its own line-drawn diagram in section 2. Diabetic eye care should
+show the retina with microaneurysms; glaucoma should show the optic nerve head.
+Same stroke weights, same palette, same label discipline.
+
+MEDICAL ACCURACY: every clinical statement on this page and its siblings must be
+confirmed by Dr. Raghuram before publication. Do not add a procedure the practice
+does not perform.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 6 · PAGE 5 — SCHEMES AND INSURANCE  (schemes.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+The sleeper page. Neither competing chain publishes its scheme list clearly, so
+this is unclaimed high-intent search traffic. It is also the page that removes
+the fear that stops people telephoning at all. Four sections. Tone: matter-of-
+fact, never apologetic about money.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: COOL
+  This is the only page whose hero sits on the cool band — the subject is
+  administrative, and the colder ground signals that honestly.
+  Aperture top-right, 470px, 45%.
+  Breadcrumb: Home / Schemes & insurance
+  H1 max-width 15ch: "Schemes and insurance"
+  Lede EXACT: "The question people are most embarrassed to ask and most worried
+  about. So here it is in plain language, before you have to ask anyone."
+
+  SECTION 2 — THE THREE SCHEMES                           band: GROUND
+  Three equal cards, 3 columns desktop, 1 under 860px.
+  Each: green tick circle → H3 scheme name → caption tag → body → hairline →
+  "BRING WITH YOU" label → three bulleted items with short blue dashes.
+  The "bring with you" block is pushed to the card bottom so all three align
+  even though the titles run to different lengths.
+
+    1 Chief Minister's Comprehensive Health Insurance Scheme
+      tag: CMCHIS · அரசு காப்பீட்டுத் திட்டம்
+      "The Tamil Nadu government scheme. Cataract surgery and a number of other
+      eye procedures are covered."
+      Bring: Your CMCHIS card · Aadhaar card · Ration card, if you have it
+    2 Pensioners Health Scheme
+      tag: For retired government employees · ஓய்வூதியர் சுகாதாரத் திட்டம்
+      "Covers retired state government employees and their dependants under the
+      scheme's terms."
+      Bring: Your pensioner ID · Scheme card · A recent pension slip
+    3 Star Health Insurance
+      tag: Private cover · தனியார் காப்பீடு
+      "Cashless treatment subject to your policy terms and prior approval where
+      required."
+      Bring: Policy card or number · A photo ID · Any referral letter
+
+  SECTION 3 — IF YOU HAVE NO SCHEME                       band: WARM
+  Split.
+    LEFT  Eyebrow "If you have no scheme"
+          H2 EXACT: "You will be told the cost before anything is booked."
+          Lede EXACT: "Not after. Not on the day. The consultation fee, what the
+          procedure would cost, and what is included — stated up front so you can
+          decide without pressure."
+    RIGHT White card. H4 "Two minutes on the phone settles it"
+          "Tell us which scheme you hold, or that you hold none, and what you
+          have noticed about your eyes. We will tell you what a first visit costs
+          and what is likely to be covered."
+          [Call 04259 221 000] primary
+
+  SECTION 4 — COUNTER QUESTIONS                           band: GROUND
+  Narrow column, max-width 760px.
+  H2 EXACT: "Questions people actually ask at the counter"
+  Five hairline rows, no numbers — this is a set, not a sequence:
+    · Do I need a referral to use my scheme?
+    · Will I have to pay and claim it back?
+    · Does the scheme cover both eyes?
+    · What about spectacles afterwards?
+    · I am not from Pollachi. Can I still use my scheme?
+  Closing caption EXACT: "Scheme rules change. If anything here does not match
+  what you have been told, call us — we would rather correct it than have you
+  turned away at the counter."
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ COOL                                            ╭──────╮               │
+  │ Home / Schemes & insurance                     ╱   ◉    ╲              │
+  │ Schemes and insurance                          ╲       ╱               │
+  │ The question people are most embarrassed…        ╰──────╯              │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                   │
+  │ │ (✓)          │  │ (✓)          │  │ (✓)          │                   │
+  │ │ Chief        │  │ Pensioners   │  │ Star Health  │                   │
+  │ │ Minister's   │  │ Health       │  │ Insurance    │                   │
+  │ │ Comprehensive│  │ Scheme       │  │              │                   │
+  │ │ Health Ins…  │  │              │  │ Private cover│                   │
+  │ │ CMCHIS       │  │ For retired… │  │              │                   │
+  │ │ The Tamil    │  │ Covers       │  │ Cashless     │                   │
+  │ │ Nadu govt…   │  │ retired…     │  │ treatment…   │                   │
+  │ │ ──────────── │  │ ──────────── │  │ ──────────── │ ← aligned by      │
+  │ │ BRING WITH   │  │ BRING WITH   │  │ BRING WITH   │   pushing this    │
+  │ │ YOU          │  │ YOU          │  │ YOU          │   block to the    │
+  │ │ – CMCHIS card│  │ – Pensioner  │  │ – Policy card│   card bottom     │
+  │ │ – Aadhaar    │  │ – Scheme card│  │ – Photo ID   │                   │
+  │ │ – Ration card│  │ – Pension slip│ │ – Referral   │                   │
+  │ └──────────────┘  └──────────────┘  └──────────────┘                   │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ WARM                                                                   │
+  │ ── IF YOU HAVE NO SCHEME       ┌──────────────────────────────┐        │
+  │                                │ Two minutes on the phone     │        │
+  │ You will be told the cost      │ settles it                   │        │
+  │ before anything is booked.     │                              │        │
+  │                                │ Tell us which scheme you     │        │
+  │ Not after. Not on the day.     │ hold, or that you hold none… │        │
+  │ The consultation fee…          │                              │        │
+  │                                │ [ ☎ Call 04259 221 000 ]     │        │
+  │                                └──────────────────────────────┘        │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │        Questions people actually ask at the counter                    │
+  │        ──────────────────────────────────────────────                  │
+  │        Do I need a referral to use my scheme?                          │
+  │        ──────────────────────────────────────────────                  │
+  │        Will I have to pay and claim it back?                           │
+  │        ──────────────────────────────────────────────                  │
+  │        Does the scheme cover both eyes?                                │
+  │        ──────────────────────────────────────────────                  │
+  │        What about spectacles afterwards?                               │
+  │        ──────────────────────────────────────────────                  │
+  │        I am not from Pollachi. Can I still use my scheme?              │
+  │        Scheme rules change. If anything here does not match…           │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ FOOTER                                                                 │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE — three scheme cards stack full width; everything else single column.
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· No dark section. This page is administrative; it does not need drama.
+· The closing caption about rules changing is not optional. A scheme listed here
+  but not honoured at the counter creates a patient being turned away, which is
+  worse than no page at all.
+· VERIFY WITH THE HOSPITAL before publishing. Scheme coverage came from the
+  discovery form and contradicts one directory listing.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 7 · PAGE 6 — VISIT US  (visit-us.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+Job three of the site's four: get them through the door. In a town the landmark
+does more work than the postcode, so the landmark is the headline. Three
+sections. Shortest page on the site, deliberately.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture top-right, 520px, 50%.
+  Breadcrumb: Home / Visit us
+  H1 max-width 16ch EXACT: "Opposite LMHSS School, Palladam Road."
+  Open-now pill directly beneath the H1.
+  Buttons: [Open in Maps] primary · [Call 04259 221 000] ghost
+
+  SECTION 2 — THE THREE FACTS                             band: GROUND
+  Three cards, 3 columns desktop, 1 under 860px. Each opens with a tinted circle
+  icon — blue for address, green for hours, amber for telephone.
+    ADDRESS  No. 73, Palladam Road, Opposite LMHSS School,
+             T. Kottampatti, Pollachi 642002
+             caption: "The landmark is the school — everyone local knows it.
+             We are directly opposite."
+    CONSULTING HOURS  Monday to Saturday / Morning 10:00 AM – 2:00 PM /
+             Evening 5:00 – 7:00 PM / Sunday closed
+    TELEPHONE 04259 221 000 (bold) · 94420 56767
+             caption: "Call during consulting hours and someone will answer."
+
+  SECTION 3 — BEFORE YOU COME                             band: WARM
+  Split, wide left.
+    LEFT  Eyebrow "Before you come"
+          H2 EXACT: "Four things that make the visit shorter."
+          Four hairline rows, no numbers:
+            Bring your glasses — all of them — "Including the old pair you
+            stopped using. They tell us more than you would expect."
+            Bring any previous prescriptions or reports — "Especially if you have
+            been seen elsewhere, or have diabetes and carry a sugar record."
+            Bring your scheme or insurance card — "It saves a second trip if
+            treatment turns out to be needed."
+            Bring someone with you, if you can — "If drops are needed to examine
+            the retina, your vision will be blurred for a few hours afterwards.
+            You should not drive yourself home."
+    RIGHT White card, sticky at top:104px on desktop.
+          H4 "Getting here"
+          "On Palladam Road at T. Kottampatti, directly opposite LMHSS School.
+          Town buses along the Palladam Road route stop within walking distance,
+          and there is space to park a two-wheeler or car outside."
+          Full-width [Open in Maps] primary
+          caption: "No appointment is needed. If you would prefer a set time,
+          call ahead."
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ Home / Visit us                                 ╭──────╮               │
+  │ Opposite LMHSS School,                         ╱   ◉    ╲              │
+  │ Palladam Road.                                 ╲       ╱               │
+  │ ● Open now · closes 2:00 PM                      ╰──────╯              │
+  │ [ ◎ Open in Maps ]  [ ☎ Call 04259 221 000 ]                           │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐               │
+  │ │ (◎) blue       │ │ (✓) green      │ │ (☎) amber      │               │
+  │ │ Address        │ │ Consulting     │ │ Telephone      │               │
+  │ │                │ │ hours          │ │                │               │
+  │ │ No. 73,        │ │ Monday to      │ │ 04259 221 000  │               │
+  │ │ Palladam Road, │ │ Saturday       │ │ 94420 56767    │               │
+  │ │ Opposite LMHSS │ │ 10:00–2:00     │ │                │               │
+  │ │ School…        │ │ 5:00–7:00      │ │ Call during    │               │
+  │ │                │ │ Sunday closed  │ │ consulting…    │               │
+  │ │ The landmark   │ │                │ │                │               │
+  │ │ is the school… │ │                │ │                │               │
+  │ └────────────────┘ └────────────────┘ └────────────────┘               │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ WARM                                                                   │
+  │ ── BEFORE YOU COME                   ┌──────────────────────────┐      │
+  │                                      │ Getting here      STICKY │      │
+  │ Four things that make                │                          │      │
+  │ the visit shorter.                   │ On Palladam Road at      │      │
+  │ ───────────────────────────────       │ T. Kottampatti, directly │      │
+  │ Bring your glasses — all of them     │ opposite LMHSS School…   │      │
+  │ Including the old pair you…          │                          │      │
+  │ ───────────────────────────────       │ [ ◎ Open in Maps      ]  │      │
+  │ Bring any previous prescriptions     │                          │      │
+  │ ───────────────────────────────       │ No appointment is        │      │
+  │ Bring your scheme or insurance card  │ needed…                  │      │
+  │ ───────────────────────────────       └──────────────────────────┘      │
+  │ Bring someone with you, if you can                                     │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ FOOTER                                                                 │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE — three fact cards stack; the "Getting here" card loses its sticky
+  behaviour and simply follows the four rows.
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· The landmark comes before the address in every instance on this page.
+· No dark section.
+· When a map embed is added it goes full-width between sections 2 and 3, 26px
+  radius, 400px tall, lazy-loaded. Do not let it push the phone numbers below
+  the fold.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 8 · PAGE 7 — ABOUT  (about.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+Substantiates the "well equipped" claim and explains, without defensiveness, why
+a small single-surgeon practice is a choice rather than a limitation. Four
+sections. It is the least urgent page on the site and should feel unhurried.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture top-right, 470px, 50%.
+  Breadcrumb: Home / About
+  H1 max-width 17ch EXACT: "A small hospital that has stayed in one place."
+  Lede EXACT: "Shri Andavar Eye Care and Retina Centre has been on Palladam Road
+  since 2013, run by the surgeon who founded it."
+
+  SECTION 2 — THE STORY                                   band: GROUND
+  Split, wide left.
+    LEFT  Three paragraphs:
+      1 (lede) EXACT: "There are larger eye hospitals within an hour of here, and
+        they do good work. What they cannot offer is the thing a small practice
+        gives for free: the same surgeon, every time, for as long as you need him."
+      2 EXACT: "Most of the people who walk through the door were sent by someone
+        — a neighbour who had their cataract done here, a family doctor who has
+        been referring patients for years, a son who searched and read about the
+        surgeon before bringing his mother in. Reputation in a town this size is
+        slow to build and very hard to fake."
+      3 EXACT: "The practice takes retina work seriously enough to put it in its
+        own name. Alongside that sits a steady volume of cataract surgery,
+        diabetic eye screening, glaucoma monitoring and routine examinations —
+        the everyday work that keeps a district seeing."
+    RIGHT Blue-tinted card. Eyebrow "In short". Four blocks:
+      Founded — "2013, in Pollachi, by Dr. A. Raghuram."
+      Focus — "Retina and cataract, with full general eye care."
+      Languages — "Tamil and English, throughout — at the counter and in the
+                   consulting room."
+      Where — "One location, on Palladam Road. No branches, by choice."
+
+  SECTION 3 — HOW WE WORK                                 band: COOL
+  Centred heading block. Eyebrow "How we work".
+  H2 EXACT: "Three things we hold to."
+  Three cards, each with a large blue numeral 01/02/03:
+    01 Nothing is recommended that is not needed — "If your eyes are fine, you
+       will be told they are fine. An unnecessary procedure is a betrayal of
+       thirteen years of trust, and it is not worth it."
+    02 You will understand what is happening — "Explanations in the language you
+       think in, without medical vocabulary, for as long as it takes. Bring your
+       questions written down if that helps."
+    03 The cost is stated before you commit — "What the visit costs, what the
+       procedure costs, and what your scheme covers — said out loud, in advance,
+       every time."
+
+  SECTION 4 — CLOSING CALL                                band: GROUND
+  Centred, max-width 44ch.
+  H2 EXACT: "Come and meet the surgeon."
+  Buttons centred: [Call 04259 221 000] primary · [About Dr. Raghuram →] ghost
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP                                     MOBILE
+  ┌───────────────────────────────────┐      ┌────────────────────────────┐
+  │ Home / About     ╭──────╮         │      │ Home / About               │
+  │                 ╱   ◉    ╲        │      │ A small hospital that      │
+  │ A small hospital ╲      ╱         │      │ has stayed in one place.   │
+  │ that has stayed    ╰──────╯       │      │ Shri Andavar Eye Care…     │
+  │ in one place.                     │      ├────────────────────────────┤
+  │ Shri Andavar Eye Care and…        │      │ There are larger eye       │
+  ├───────────────────────────────────┤      │ hospitals within an hour…  │
+  │ There are larger    ┌────────────┐│      │ Most of the people who…    │
+  │ eye hospitals…      │ TINT CARD  ││      │ The practice takes…        │
+  │                     │ ── IN SHORT││      │ ┌────────────────────────┐ │
+  │ Most of the people  │ Founded    ││      │ │ TINT · IN SHORT        │ │
+  │ who walk through…   │ 2013…      ││      │ │ Founded · Focus ·      │ │
+  │                     │ Focus      ││      │ │ Languages · Where      │ │
+  │ The practice takes  │ Retina…    ││      │ └────────────────────────┘ │
+  │ retina work…        │ Languages  ││      ├────────────────────────────┤
+  │                     │ Tamil &…   ││      │ COOL                       │
+  │                     │ Where      ││      │ ── HOW WE WORK             │
+  │                     │ One loc…   ││      │ Three things we hold to.   │
+  │                     └────────────┘│      │ ┌────────────────────────┐ │
+  ├───────────────────────────────────┤      │ │ 01 Nothing is          │ │
+  │ COOL                              │      │ │    recommended that    │ │
+  │        ── HOW WE WORK             │      │ │    is not needed       │ │
+  │      Three things we hold to.     │      │ └────────────────────────┘ │
+  │ ┌──────────┐┌──────────┐┌────────┐│      │ ┌────────────────────────┐ │
+  │ │ 01       ││ 02       ││ 03     ││      │ │ 02 You will understand │ │
+  │ │ Nothing  ││ You will ││ The    ││      │ └────────────────────────┘ │
+  │ │ is rec-  ││ under-   ││ cost is││      │ ┌────────────────────────┐ │
+  │ │ ommended ││ stand    ││ stated ││      │ │ 03 The cost is stated  │ │
+  │ │ that is  ││ what is  ││ before ││      │ └────────────────────────┘ │
+  │ │ not      ││ happen-  ││ you    ││      ├────────────────────────────┤
+  │ │ needed   ││ ing      ││ commit ││      │ Come and meet the surgeon. │
+  │ └──────────┘└──────────┘└────────┘│      │ [ ☎ Call ] [ About Dr. → ] │
+  ├───────────────────────────────────┤      ├────────────────────────────┤
+  │      Come and meet the surgeon.   │      │ FOOTER + fixed call bar    │
+  │  [ ☎ Call ]  [ About Dr. R → ]    │      └────────────────────────────┘
+  ├───────────────────────────────────┤
+  │ FOOTER                            │
+  └───────────────────────────────────┘
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· No dark section.
+· The 01/02/03 numerals here are a list of three principles, not a sequence, but
+  numbering is acceptable because they are explicitly "three things". Do not
+  number anywhere the count is not the point.
+· Facility photography, when it exists, belongs in section 2 beneath the third
+  paragraph as a two-up. It will substantiate "well equipped", which is currently
+  asserted rather than shown.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 9 · PAGE 8 — PATIENT STORIES  (patient-stories.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+Social proof. The Eye Foundation shows five testimonials on their Pollachi page;
+this needs to be better and more local. Three sections.
+
+  ⚠ THE SIX QUOTATIONS CURRENTLY ON THIS PAGE ARE PLACEHOLDERS. They are written
+  to demonstrate length, tone and layout. They are NOT real patients and must be
+  replaced before launch. A visible dashed note on the page says exactly this;
+  remove the note when the real quotations are in.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: WARM
+  The only page hero on the warm band — the subject is human, so the ground is.
+  Aperture top-right, 470px, 45%.
+  Breadcrumb: Home / Patient stories
+  H1 max-width 16ch EXACT: "What people say afterwards."
+  Lede EXACT: "Collected from patients and families who agreed to have their
+  words published."
+
+  SECTION 2 — THE STORIES                                 band: GROUND
+  First: an amber-tinted card with a DASHED border — the internal note. It reads:
+  "A note for the hospital, not the patient" and explains the placeholders, that
+  Google reviews can be pulled in automatically, and that the box must be removed.
+  Then six testimonial cards, 3 columns desktop, 1 under 860px.
+  Each card: five amber stars → blue treatment label → quotation → hairline →
+  name in ink and place in muted grey.
+  PLACEHOLDER content, six cards:
+    Cataract surgery, both eyes · R. Manickam, Pollachi
+    Diabetic eye screening · S. Lakshmi, Zamin Uthukuli
+    Retina, emergency · A. Karthik, Kinathukadavu
+    Cataract surgery · M. Devi, Pollachi
+    Glaucoma monitoring · V. Subramanian, Anaimalai
+    Spectacles and check-up · P. Anitha, Pollachi
+
+  SECTION 3 — ASK FOR ONE                                 band: INK
+  Aperture bottom-right, 560px, 18%. Centred, max-width 42ch.
+  H2 EXACT: "Were you treated here?"
+  Lede EXACT: "A few sentences about your experience helps the next person decide
+  whether to come in. Tell us at the desk, or leave a review on Google."
+  Button: [Call 04259 221 000] white
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ WARM                                            ╭──────╮               │
+  │ Home / Patient stories                         ╱   ◉    ╲              │
+  │ What people say afterwards.                    ╲       ╱               │
+  │ Collected from patients and families…            ╰──────╯              │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐     │
+  │   A note for the hospital, not the patient      ← AMBER, DASHED        │
+  │   These quotations are placeholders. Replace before launch…      │     │
+  │ └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘     │
+  │ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐                        │
+  │ │ ★★★★★       │ │ ★★★★★       │ │ ★★★★★       │                        │
+  │ │ Cataract    │ │ Diabetic    │ │ Retina,     │                        │
+  │ │ surgery,    │ │ eye         │ │ emergency   │                        │
+  │ │ both eyes   │ │ screening   │ │             │                        │
+  │ │ "I had      │ │ "My sugar   │ │ "I saw a    │                        │
+  │ │  stopped    │ │  has been   │ │  curtain    │                        │
+  │ │  driving…"  │ │  high…"     │ │  coming…"   │                        │
+  │ │ ─────────── │ │ ─────────── │ │ ─────────── │                        │
+  │ │ R. Manickam │ │ S. Lakshmi  │ │ A. Karthik  │                        │
+  │ │ Pollachi    │ │ Zamin Uthu… │ │ Kinathukad… │                        │
+  │ └─────────────┘ └─────────────┘ └─────────────┘                        │
+  │ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐                        │
+  │ │ M. Devi     │ │ V. Subram…  │ │ P. Anitha   │                        │
+  │ └─────────────┘ └─────────────┘ └─────────────┘                        │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ██ INK ██        Were you treated here?              ╭─╮               │
+  │           A few sentences about your experience…    ╱ ◉ ╲              │
+  │                  [ ☎ Call 04259 221 000 ]           ╲   ╱  18%         │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ FOOTER                                                                 │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE — note card full width, then six testimonial cards stacked.
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· Never publish a testimonial without the patient's consent on record.
+· Do not invent names, places or outcomes. If real quotations are short, publish
+  fewer cards rather than padding.
+· If Google reviews are embedded instead, keep the same card anatomy so the page
+  still reads as part of this site.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 10 · PAGE 9 — EYE HEALTH  (eye-health.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+Not a blog. Answers to the questions people actually ask at the counter, written
+in the surgeon's voice. Three sections. Six entries is enough to launch.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture top-right, 470px, 50%.
+  Breadcrumb: Home / Eye health
+  H1 max-width 16ch EXACT: "Questions people ask at the counter."
+  Lede EXACT: "Written by Dr. Raghuram, in answer to the things patients actually
+  ask — not a blog for the sake of having one."
+
+  SECTION 2 — THE SIX ANSWERS                             band: GROUND
+  Six article cards, 2 columns desktop, 1 under 860px. Each is an H3 statement —
+  not a question, a conclusion — plus one paragraph. Bilingual H3.
+    1 If you have diabetes, your eyes need a check every year
+    2 A cataract does not need to be "ripe"
+    3 Children rarely say they cannot see
+    4 Floaters are usually harmless. A curtain is not.
+    5 Screens do not damage your eyes, but they do dry them
+    6 Do not buy a pressure reading from a machine alone
+  Beneath the six: a second amber dashed internal note explaining that the page
+  only earns its keep if it is fed one answer a month, and that leaving it as is
+  beats letting it visibly go stale.
+
+  SECTION 3 — CLOSING CALL                                band: COOL
+  Centred, max-width 44ch.
+  H2 EXACT: "Something here sound like you?"
+  Lede EXACT: "Come in and have it looked at properly. No appointment needed."
+  Buttons centred: [Call 04259 221 000] primary · [What we treat →] ghost
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP                                     MOBILE
+  ┌───────────────────────────────────┐      ┌────────────────────────────┐
+  │ Home / Eye health  ╭──────╮       │      │ Home / Eye health          │
+  │                   ╱   ◉    ╲      │      │ Questions people ask       │
+  │ Questions people  ╲       ╱       │      │ at the counter.            │
+  │ ask at the counter. ╰──────╯      │      │ Written by Dr. Raghuram…   │
+  │ Written by Dr. Raghuram, in…      │      ├────────────────────────────┤
+  ├───────────────────────────────────┤      │ ┌────────────────────────┐ │
+  │ ┌─────────────────┐┌─────────────┐│      │ │ If you have diabetes,  │ │
+  │ │ If you have     ││ A cataract  ││      │ │ your eyes need a check │ │
+  │ │ diabetes, your  ││ does not    ││      │ │ every year             │ │
+  │ │ eyes need a     ││ need to be  ││      │ └────────────────────────┘ │
+  │ │ check every year││ "ripe"      ││      │ ┌────────────────────────┐ │
+  │ │ Diabetic damage ││ This is old ││      │ │ A cataract does not    │ │
+  │ │ to the back of  ││ advice from ││      │ │ need to be "ripe"      │ │
+  │ │ the eye…        ││ an era of…  ││      │ └────────────────────────┘ │
+  │ └─────────────────┘└─────────────┘│      │ ┌────────────────────────┐ │
+  │ ┌─────────────────┐┌─────────────┐│      │ │ Children rarely say…   │ │
+  │ │ Children rarely ││ Floaters are││      │ └────────────────────────┘ │
+  │ │ say they cannot ││ usually     ││      │ ┌────────────────────────┐ │
+  │ │ see             ││ harmless…   ││      │ │ Floaters are usually…  │ │
+  │ └─────────────────┘└─────────────┘│      │ └────────────────────────┘ │
+  │ ┌─────────────────┐┌─────────────┐│      │ ┌────────────────────────┐ │
+  │ │ Screens do not  ││ Do not buy  ││      │ │ Screens do not damage… │ │
+  │ │ damage your     ││ a pressure  ││      │ └────────────────────────┘ │
+  │ │ eyes, but…      ││ reading…    ││      │ ┌────────────────────────┐ │
+  │ └─────────────────┘└─────────────┘│      │ │ Do not buy a pressure… │ │
+  │ ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐│      │ └────────────────────────┘ │
+  │   A note for the hospital…       ││      │ ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐ │
+  │   Six entries is enough to launch…│      │   A note for the hospital │ │
+  │ └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘│      │ └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘ │
+  ├───────────────────────────────────┤      ├────────────────────────────┤
+  │ COOL                              │      │ COOL                       │
+  │   Something here sound like you?  │      │ Something here sound       │
+  │   Come in and have it looked at…  │      │ like you?                  │
+  │   [ ☎ Call ]  [ What we treat → ] │      │ [ ☎ Call ] [ Treat → ]     │
+  ├───────────────────────────────────┤      ├────────────────────────────┤
+  │ FOOTER                            │      │ FOOTER + fixed call bar    │
+  └───────────────────────────────────┘      └────────────────────────────┘
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· Headings are conclusions, not questions. "A cataract does not need to be ripe",
+  not "Does a cataract need to be ripe?". It is more useful and it ranks better.
+· Every clinical claim must be confirmed by Dr. Raghuram.
+· No dark section.
+
+
+════════════════════════════════════════════════════════════════════════════════
+PART 11 · CONSISTENCY CHECKLIST — RUN BEFORE ANYTHING SHIPS
+════════════════════════════════════════════════════════════════════════════════
+
+STYLE CARRIED THROUGH
+  □ Every page uses the identical header, sticky call bar and footer.
+  □ Every page hero has one aperture bleeding off a corner. Same construction,
+    same stroke, only the size and opacity vary.
+  □ Band order alternates. No two identical bands ever touch.
+  □ At most ONE dark ink section per page. Only Home, Cataract surgery and
+    Patient stories have one.
+  □ Only the colours in 0.2 appear anywhere. No new hue has been introduced.
+  □ Blue is used only for things that can be clicked.
+  □ One typeface, four weights, no exceptions.
+  □ Card anatomy is reused, never reinvented. Service cards look the same on
+    Home and on Treatments.
+  □ Every section that opens with a label uses the eyebrow component.
+
+TYPOGRAPHY
+  □ Body text is 18px everywhere. Nothing smaller than 15px anywhere.
+  □ Every `ch` max-width sits on the element that carries the font-size, never
+    on a wrapper.
+  □ No paragraph exceeds 64ch.
+  □ Every heading has text-wrap: balance.
+
+MOTION
+  □ Focus-pull appears on headings and cards only, never on long paragraphs.
+  □ Stagger never exceeds five steps.
+  □ prefers-reduced-motion disables everything.
+  □ With JavaScript blocked, every page still shows all its content.
+
+MOBILE — TEST AT 390px
+  □ Zero horizontal scroll on every page.
+  □ The sticky call bar is visible at every scroll depth on every page.
+  □ Call bar labels stay on one line.
+  □ The header brand truncates instead of pushing the menu button off-screen.
+  □ Every touch target is at least 48px with 8px separation.
+
+BILINGUAL
+  □ The EN/த toggle switches navigation, buttons and body — not just articles.
+  □ No English string is left visible in Tamil mode, and vice versa.
+  □ Tamil renders in Anek, not a system fallback.
+
+CONTENT — THE FOUR THINGS THAT MUST HAPPEN BEFORE LAUNCH
+  □ Patient stories replaced with real, consented quotations; dashed note removed.
+  □ Tamil body copy completed and checked by a Tamil-speaking medical
+    copywriter. Not machine translation.
+  □ Consulting days, the full treatment list and scheme coverage confirmed with
+    Dr. Raghuram.
+  □ Surgeon photography shot and placed. Nothing needs redesigning to accept it.
+
+NOT BUILT, ON PURPOSE
+  □ Gallery. It is nothing but photographs and there are none. Build it the week
+    after the shoot, using the card grid from Patient stories.
+
+
+────────────────────────────────────────────────────────────────────────────────
+END OF SPECIFICATION
+Shri Andavar Eye Care and Retina Centre · "Clear Sight" · v1.0 · 12 Sept 2026
+────────────────────────────────────────────────────────────────────────────────

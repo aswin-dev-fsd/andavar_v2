@@ -1,0 +1,118 @@
+---PART 9 (ABOUT)---
+PAGE 7 — ABOUT  (about.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+Substantiates the "well equipped" claim and explains, without defensiveness, why
+a small single-surgeon practice is a choice rather than a limitation. Four
+sections. It is the least urgent page on the site and should feel unhurried.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture top-right, 470px, 50%.
+  Breadcrumb: Home / About
+  H1 max-width 17ch EXACT: "A small hospital that has stayed in one place."
+  Lede EXACT: "Shri Andavar Eye Care and Retina Centre has been on Palladam Road
+  since 2013, run by the surgeon who founded it."
+
+  SECTION 2 — THE STORY                                   band: GROUND
+  Split, wide left.
+    LEFT  Three paragraphs:
+      1 (lede) EXACT: "There are larger eye hospitals within an hour of here, and
+        they do good work. What they cannot offer is the thing a small practice
+        gives for free: the same surgeon, every time, for as long as you need him."
+      2 EXACT: "Most of the people who walk through the door were sent by someone
+        — a neighbour who had their cataract done here, a family doctor who has
+        been referring patients for years, a son who searched and read about the
+        surgeon before bringing his mother in. Reputation in a town this size is
+        slow to build and very hard to fake."
+      3 EXACT: "The practice takes retina work seriously enough to put it in its
+        own name. Alongside that sits a steady volume of cataract surgery,
+        diabetic eye screening, glaucoma monitoring and routine examinations —
+        the everyday work that keeps a district seeing."
+    RIGHT Blue-tinted card. Eyebrow "In short". Four blocks:
+      Founded — "2013, in Pollachi, by Dr. A. Raghuram."
+      Focus — "Retina and cataract, with full general eye care."
+      Languages — "Tamil and English, throughout — at the counter and in the
+                   consulting room."
+      Where — "One location, on Palladam Road. No branches, by choice."
+
+  SECTION 3 — HOW WE WORK                                 band: COOL
+  Centred heading block. Eyebrow "How we work".
+  H2 EXACT: "Three things we hold to."
+  Three cards, each with a large blue numeral 01/02/03:
+    01 Nothing is recommended that is not needed — "If your eyes are fine, you
+       will be told they are fine. An unnecessary procedure is a betrayal of
+       thirteen years of trust, and it is not worth it."
+    02 You will understand what is happening — "Explanations in the language you
+       think in, without medical vocabulary, for as long as it takes. Bring your
+       questions written down if that helps."
+    03 The cost is stated before you commit — "What the visit costs, what the
+       procedure costs, and what your scheme covers — said out loud, in advance,
+       every time."
+
+  SECTION 4 — CLOSING CALL                                band: GROUND
+  Centred, max-width 44ch.
+  H2 EXACT: "Come and meet the surgeon."
+  Buttons centred: [Call 04259 221 000] primary · [About Dr. Raghuram →] ghost
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP                                     MOBILE
+  ┌───────────────────────────────────┐      ┌────────────────────────────┐
+  │ Home / About     ╭──────╮         │      │ Home / About               │
+  │                 ╱   ◉    ╲        │      │ A small hospital that      │
+  │ A small hospital ╲      ╱         │      │ has stayed in one place.   │
+  │ that has stayed    ╰──────╯       │      │ Shri Andavar Eye Care…     │
+  │ in one place.                     │      ├────────────────────────────┤
+  │ Shri Andavar Eye Care and…        │      │ There are larger eye       │
+  ├───────────────────────────────────┤      │ hospitals within an hour…  │
+  │ There are larger    ┌────────────┐│      │ Most of the people who…    │
+  │ eye hospitals…      │ TINT CARD  ││      │ The practice takes…        │
+  │                     │ ── IN SHORT││      │ ┌────────────────────────┐ │
+  │ Most of the people  │ Founded    ││      │ │ TINT · IN SHORT        │ │
+  │ who walk through…   │ 2013…      ││      │ │ Founded · Focus ·      │ │
+  │                     │ Focus      ││      │ │ Languages · Where      │ │
+  │ The practice takes  │ Retina…    ││      │ └────────────────────────┘ │
+  │ retina work…        │ Languages  ││      ├────────────────────────────┤
+  │                     │ Tamil &…   ││      │ COOL                       │
+  │                     │ Where      ││      │ ── HOW WE WORK             │
+  │                     │ One loc…   ││      │ Three things we hold to.   │
+  │                     └────────────┘│      │ ┌────────────────────────┐ │
+  ├───────────────────────────────────┤      │ │ 01 Nothing is          │ │
+  │ COOL                              │      │ │    recommended that    │ │
+  │        ── HOW WE WORK             │      │ │    is not needed       │ │
+  │      Three things we hold to.     │      │ └────────────────────────┘ │
+  │ ┌──────────┐┌──────────┐┌────────┐│      │ ┌────────────────────────┐ │
+  │ │ 01       ││ 02       ││ 03     ││      │ │ 02 You will understand │ │
+  │ │ Nothing  ││ You will ││ The    ││      │ └────────────────────────┘ │
+  │ │ is rec-  ││ under-   ││ cost is││      │ ┌────────────────────────┐ │
+  │ │ ommended ││ stand    ││ stated ││      │ │ 03 The cost is stated  │ │
+  │ │ that is  ││ what is  ││ before ││      │ └────────────────────────┘ │
+  │ │ not      ││ happen-  ││ you    ││      ├────────────────────────────┤
+  │ │ needed   ││ ing      ││ commit ││      │ Come and meet the surgeon. │
+  │ └──────────┘└──────────┘└────────┘│      │ [ ☎ Call ] [ About Dr. → ] │
+  ├───────────────────────────────────┤      ├────────────────────────────┤
+  │      Come and meet the surgeon.   │      │ FOOTER + fixed call bar    │
+  │  [ ☎ Call ]  [ About Dr. R → ]    │      └────────────────────────────┘
+  ├───────────────────────────────────┤
+  │ FOOTER                            │
+  └───────────────────────────────────┘
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· No dark section.
+· The 01/02/03 numerals here are a list of three principles, not a sequence, but
+  numbering is acceptable because they are explicitly "three things". Do not
+  number anywhere the count is not the point.
+· Facility photography, when it exists, belongs in section 2 beneath the third
+  paragraph as a two-up. It will substantiate "well equipped", which is currently
+  asserted rather than shown.
+
+

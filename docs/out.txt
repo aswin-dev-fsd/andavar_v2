@@ -1,0 +1,252 @@
+---PART 7---
+PAGE 5 — SCHEMES AND INSURANCE  (schemes.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+The sleeper page. Neither competing chain publishes its scheme list clearly, so
+this is unclaimed high-intent search traffic. It is also the page that removes
+the fear that stops people telephoning at all. Four sections. Tone: matter-of-
+fact, never apologetic about money.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: COOL
+  This is the only page whose hero sits on the cool band — the subject is
+  administrative, and the colder ground signals that honestly.
+  Aperture top-right, 470px, 45%.
+  Breadcrumb: Home / Schemes & insurance
+  H1 max-width 15ch: "Schemes and insurance"
+  Lede EXACT: "The question people are most embarrassed to ask and most worried
+  about. So here it is in plain language, before you have to ask anyone."
+
+  SECTION 2 — THE THREE SCHEMES                           band: GROUND
+  Three equal cards, 3 columns desktop, 1 under 860px.
+  Each: green tick circle → H3 scheme name → caption tag → body → hairline →
+  "BRING WITH YOU" label → three bulleted items with short blue dashes.
+  The "bring with you" block is pushed to the card bottom so all three align
+  even though the titles run to different lengths.
+
+    1 Chief Minister's Comprehensive Health Insurance Scheme
+      tag: CMCHIS · அரசு காப்பீட்டுத் திட்டம்
+      "The Tamil Nadu government scheme. Cataract surgery and a number of other
+      eye procedures are covered."
+      Bring: Your CMCHIS card · Aadhaar card · Ration card, if you have it
+    2 Pensioners Health Scheme
+      tag: For retired government employees · ஓய்வூதியர் சுகாதாரத் திட்டம்
+      "Covers retired state government employees and their dependants under the
+      scheme's terms."
+      Bring: Your pensioner ID · Scheme card · A recent pension slip
+    3 Star Health Insurance
+      tag: Private cover · தனியார் காப்பீடு
+      "Cashless treatment subject to your policy terms and prior approval where
+      required."
+      Bring: Policy card or number · A photo ID · Any referral letter
+
+  SECTION 3 — IF YOU HAVE NO SCHEME                       band: WARM
+  Split.
+    LEFT  Eyebrow "If you have no scheme"
+          H2 EXACT: "You will be told the cost before anything is booked."
+          Lede EXACT: "Not after. Not on the day. The consultation fee, what the
+          procedure would cost, and what is included — stated up front so you can
+          decide without pressure."
+    RIGHT White card. H4 "Two minutes on the phone settles it"
+          "Tell us which scheme you hold, or that you hold none, and what you
+          have noticed about your eyes. We will tell you what a first visit costs
+          and what is likely to be covered."
+          [Call 04259 221 000] primary
+
+  SECTION 4 — COUNTER QUESTIONS                           band: GROUND
+  Narrow column, max-width 760px.
+  H2 EXACT: "Questions people actually ask at the counter"
+  Five hairline rows, no numbers — this is a set, not a sequence:
+    · Do I need a referral to use my scheme?
+    · Will I have to pay and claim it back?
+    · Does the scheme cover both eyes?
+    · What about spectacles afterwards?
+    · I am not from Pollachi. Can I still use my scheme?
+  Closing caption EXACT: "Scheme rules change. If anything here does not match
+  what you have been told, call us — we would rather correct it than have you
+  turned away at the counter."
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ COOL                                            ╭──────╮               │
+  │ Home / Schemes & insurance                     ╱   ◉    ╲              │
+  │ Schemes and insurance                          ╲       ╱               │
+  │ The question people are most embarrassed…        ╰──────╯              │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                   │
+  │ │ (✓)          │  │ (✓)          │  │ (✓)          │                   │
+  │ │ Chief        │  │ Pensioners   │  │ Star Health  │                   │
+  │ │ Minister's   │  │ Health       │  │ Insurance    │                   │
+  │ │ Comprehensive│  │ Scheme       │  │              │                   │
+  │ │ Health Ins…  │  │              │  │ Private cover│                   │
+  │ │ CMCHIS       │  │ For retired… │  │              │                   │
+  │ │ The Tamil    │  │ Covers       │  │ Cashless     │                   │
+  │ │ Nadu govt…   │  │ retired…     │  │ treatment…   │                   │
+  │ │ ──────────── │  │ ──────────── │  │ ──────────── │ ← aligned by      │
+  │ │ BRING WITH   │  │ BRING WITH   │  │ BRING WITH   │   pushing this    │
+  │ │ YOU          │  │ YOU          │  │ YOU          │   block to the    │
+  │ │ – CMCHIS card│  │ – Pensioner  │  │ – Policy card│   card bottom     │
+  │ │ – Aadhaar    │  │ – Scheme card│  │ – Photo ID   │                   │
+  │ │ – Ration card│  │ – Pension slip│ │ – Referral   │                   │
+  │ └──────────────┘  └──────────────┘  └──────────────┘                   │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ WARM                                                                   │
+  │ ── IF YOU HAVE NO SCHEME       ┌──────────────────────────────┐        │
+  │                                │ Two minutes on the phone     │        │
+  │ You will be told the cost      │ settles it                   │        │
+  │ before anything is booked.     │                              │        │
+  │                                │ Tell us which scheme you     │        │
+  │ Not after. Not on the day.     │ hold, or that you hold none… │        │
+  │ The consultation fee…          │                              │        │
+  │                                │ [ ☎ Call 04259 221 000 ]     │        │
+  │                                └──────────────────────────────┘        │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │        Questions people actually ask at the counter                    │
+  │        ──────────────────────────────────────────────                  │
+  │        Do I need a referral to use my scheme?                          │
+  │        ──────────────────────────────────────────────                  │
+  │        Will I have to pay and claim it back?                           │
+  │        ──────────────────────────────────────────────                  │
+  │        Does the scheme cover both eyes?                                │
+  │        ──────────────────────────────────────────────                  │
+  │        What about spectacles afterwards?                               │
+  │        ──────────────────────────────────────────────                  │
+  │        I am not from Pollachi. Can I still use my scheme?              │
+  │        Scheme rules change. If anything here does not match…           │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ FOOTER                                                                 │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE — three scheme cards stack full width; everything else single column.
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· No dark section. This page is administrative; it does not need drama.
+· The closing caption about rules changing is not optional. A scheme listed here
+  but not honoured at the counter creates a patient being turned away, which is
+  worse than no page at all.
+· VERIFY WITH THE HOSPITAL before publishing. Scheme coverage came from the
+  discovery form and contradicts one directory listing.
+
+
+
+---PART 8---
+PAGE 6 — VISIT US  (visit-us.html)
+════════════════════════════════════════════════════════════════════════════════
+
+A · THE BRIEF
+────────────────────────────────────────────────────────────────────────────────
+Job three of the site's four: get them through the door. In a town the landmark
+does more work than the postcode, so the landmark is the headline. Three
+sections. Shortest page on the site, deliberately.
+
+
+B · SECTION SPEC
+────────────────────────────────────────────────────────────────────────────────
+
+  SECTION 1 — PAGE HERO                                   band: GROUND
+  Aperture top-right, 520px, 50%.
+  Breadcrumb: Home / Visit us
+  H1 max-width 16ch EXACT: "Opposite LMHSS School, Palladam Road."
+  Open-now pill directly beneath the H1.
+  Buttons: [Open in Maps] primary · [Call 04259 221 000] ghost
+
+  SECTION 2 — THE THREE FACTS                             band: GROUND
+  Three cards, 3 columns desktop, 1 under 860px. Each opens with a tinted circle
+  icon — blue for address, green for hours, amber for telephone.
+    ADDRESS  No. 73, Palladam Road, Opposite LMHSS School,
+             T. Kottampatti, Pollachi 642002
+             caption: "The landmark is the school — everyone local knows it.
+             We are directly opposite."
+    CONSULTING HOURS  Monday to Saturday / Morning 10:00 AM – 2:00 PM /
+             Evening 5:00 – 7:00 PM / Sunday closed
+    TELEPHONE 04259 221 000 (bold) · 94420 56767
+             caption: "Call during consulting hours and someone will answer."
+
+  SECTION 3 — BEFORE YOU COME                             band: WARM
+  Split, wide left.
+    LEFT  Eyebrow "Before you come"
+          H2 EXACT: "Four things that make the visit shorter."
+          Four hairline rows, no numbers:
+            Bring your glasses — all of them — "Including the old pair you
+            stopped using. They tell us more than you would expect."
+            Bring any previous prescriptions or reports — "Especially if you have
+            been seen elsewhere, or have diabetes and carry a sugar record."
+            Bring your scheme or insurance card — "It saves a second trip if
+            treatment turns out to be needed."
+            Bring someone with you, if you can — "If drops are needed to examine
+            the retina, your vision will be blurred for a few hours afterwards.
+            You should not drive yourself home."
+    RIGHT White card, sticky at top:104px on desktop.
+          H4 "Getting here"
+          "On Palladam Road at T. Kottampatti, directly opposite LMHSS School.
+          Town buses along the Palladam Road route stop within walking distance,
+          and there is space to park a two-wheeler or car outside."
+          Full-width [Open in Maps] primary
+          caption: "No appointment is needed. If you would prefer a set time,
+          call ahead."
+
+
+C · WIREFRAME
+────────────────────────────────────────────────────────────────────────────────
+  DESKTOP
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ Home / Visit us                                 ╭──────╮               │
+  │ Opposite LMHSS School,                         ╱   ◉    ╲              │
+  │ Palladam Road.                                 ╲       ╱               │
+  │ ● Open now · closes 2:00 PM                      ╰──────╯              │
+  │ [ ◎ Open in Maps ]  [ ☎ Call 04259 221 000 ]                           │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐               │
+  │ │ (◎) blue       │ │ (✓) green      │ │ (☎) amber      │               │
+  │ │ Address        │ │ Consulting     │ │ Telephone      │               │
+  │ │                │ │ hours          │ │                │               │
+  │ │ No. 73,        │ │ Monday to      │ │ 04259 221 000  │               │
+  │ │ Palladam Road, │ │ Saturday       │ │ 94420 56767    │               │
+  │ │ Opposite LMHSS │ │ 10:00–2:00     │ │                │               │
+  │ │ School…        │ │ 5:00–7:00      │ │ Call during    │               │
+  │ │                │ │ Sunday closed  │ │ consulting…    │               │
+  │ │ The landmark   │ │                │ │                │               │
+  │ │ is the school… │ │                │ │                │               │
+  │ └────────────────┘ └────────────────┘ └────────────────┘               │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ WARM                                                                   │
+  │ ── BEFORE YOU COME                   ┌──────────────────────────┐      │
+  │                                      │ Getting here      STICKY │      │
+  │ Four things that make                │                          │      │
+  │ the visit shorter.                   │ On Palladam Road at      │      │
+  │ ───────────────────────────────       │ T. Kottampatti, directly │      │
+  │ Bring your glasses — all of them     │ opposite LMHSS School…   │      │
+  │ Including the old pair you…          │                          │      │
+  │ ───────────────────────────────       │ [ ◎ Open in Maps      ]  │      │
+  │ Bring any previous prescriptions     │                          │      │
+  │ ───────────────────────────────       │ No appointment is        │      │
+  │ Bring your scheme or insurance card  │ needed…                  │      │
+  │ ───────────────────────────────       └──────────────────────────┘      │
+  │ Bring someone with you, if you can                                     │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │ FOOTER                                                                 │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  MOBILE — three fact cards stack; the "Getting here" card loses its sticky
+  behaviour and simply follows the four rows.
+
+
+D · PAGE RULES
+────────────────────────────────────────────────────────────────────────────────
+· The landmark comes before the address in every instance on this page.
+· No dark section.
+· When a map embed is added it goes full-width between sections 2 and 3, 26px
+  radius, 400px tall, lazy-loaded. Do not let it push the phone numbers below
+  the fold.
+
+
