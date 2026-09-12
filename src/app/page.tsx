@@ -8,6 +8,9 @@ import { ApertureSVG } from "@/components/ApertureSVG";
 import { QuickActionBar } from "@/components/QuickActionBar";
 import { SchemesDrawer } from "@/components/SchemesDrawer";
 import { ConsultationModal } from "@/components/ConsultationModal";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
+import { ParallaxWrapper } from "@/components/animations/ParallaxWrapper";
 import {
   Phone,
   Calendar,
@@ -41,17 +44,17 @@ export default function HomePage() {
           ─────────────────────────────────────────────────────────── */}
       <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 overflow-hidden bg-[#FBF8F3] border-b border-[#E2DACE]">
         {/* Aperture Concentric Background Rings */}
-        <div className="absolute -top-16 -right-16 opacity-35 pointer-events-none hidden md:block">
+        <ParallaxWrapper offset={30} className="absolute -top-16 -right-16 opacity-35 pointer-events-none hidden md:block">
           <ApertureSVG size={520} strokeColor="#0B5C8A" opacity={0.2} />
-        </div>
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 opacity-25 pointer-events-none">
+        </ParallaxWrapper>
+        <ParallaxWrapper offset={-20} className="absolute top-1/2 left-0 -translate-y-1/2 opacity-25 pointer-events-none">
           <ApertureSVG size={360} strokeColor="#B8722C" opacity={0.15} />
-        </div>
+        </ParallaxWrapper>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Hero Left Column (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
+            <ScrollReveal className="lg:col-span-7 space-y-6">
               {/* Trust Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFF3F5] border border-[#0B5C8A]/20 text-[#0B5C8A] text-xs sm:text-sm font-semibold tracking-wide shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#2E7D5B] pulse-dot" />
@@ -123,10 +126,10 @@ export default function HomePage() {
                   )}
                 </span>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Hero Right Column: Surgeon Credential Card (5 cols) */}
-            <div className="lg:col-span-5">
+            <ScrollReveal delay={0.2} direction="left" className="lg:col-span-5">
               <div className="relative bg-[#FFFFFF] border-2 border-[#E2DACE] rounded-lg p-6 sm:p-7 shadow-md">
                 {/* Accent Top Border */}
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#0B5C8A] rounded-t-md" />
@@ -197,7 +200,7 @@ export default function HomePage() {
                   <span className="text-[11px] text-[#717880]">Pollachi, TN</span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -216,37 +219,43 @@ export default function HomePage() {
       <section className="py-12 border-b border-[#E2DACE] bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-[#E2DACE]">
-            <div className="pt-4 sm:pt-0 px-3">
-              <p className="text-3xl sm:text-4xl font-bold font-serif text-[#0B5C8A]">13+ Years</p>
+            <ScrollReveal delay={0} className="pt-4 sm:pt-0 px-3">
+              <p className="text-3xl sm:text-4xl font-bold font-serif text-[#0B5C8A]">
+                <AnimatedCounter value={13} suffix="+" /> Years
+              </p>
               <p className="text-sm font-semibold text-[#151A1C] mt-1">
                 {t("In Pollachi", "பொள்ளாச்சியில்")}
               </p>
               <p className="text-xs text-[#717880] mt-0.5">
                 {t("Serving Anaimalai, Udumalpet & Valparai", "ஆனைமலை, உடுமலை & வால்பாறை மக்கள்")}
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="pt-4 sm:pt-0 px-3">
-              <p className="text-3xl sm:text-4xl font-bold font-serif text-[#0B5C8A]">2.2 mm</p>
+            <ScrollReveal delay={0.1} className="pt-4 sm:pt-0 px-3">
+              <p className="text-3xl sm:text-4xl font-bold font-serif text-[#0B5C8A]">
+                <AnimatedCounter value={2.2} decimals={1} suffix=" mm" />
+              </p>
               <p className="text-sm font-semibold text-[#151A1C] mt-1">
                 {t("Micro-Incision (MICS)", "நுண்துளை அறுவை சிகிச்சை")}
               </p>
               <p className="text-xs text-[#717880] mt-0.5">
                 {t("Zero stitches, rapid next-day visual recovery", "தையல் இல்லை, விரைவான பார்வை மீட்சி")}
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="pt-4 sm:pt-0 px-3">
-              <p className="text-3xl sm:text-4xl font-bold font-serif text-[#2E7D5B]">100%</p>
+            <ScrollReveal delay={0.2} className="pt-4 sm:pt-0 px-3">
+              <p className="text-3xl sm:text-4xl font-bold font-serif text-[#2E7D5B]">
+                <AnimatedCounter value={100} suffix="%" />
+              </p>
               <p className="text-sm font-semibold text-[#151A1C] mt-1">
                 {t("Cashless CMCHIS", "முதலமைச்சர் காப்பீடு")}
               </p>
               <p className="text-xs text-[#717880] mt-0.5">
                 {t("Full package for smart ration card holders", "ஸ்மார்ட் ரேஷன் அட்டைதாரர்களுக்கு இலவசம்")}
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="pt-4 sm:pt-0 px-3">
+            <ScrollReveal delay={0.3} className="pt-4 sm:pt-0 px-3">
               <p className="text-3xl sm:text-4xl font-bold font-serif text-[#B8722C]">Single Surgeon</p>
               <p className="text-sm font-semibold text-[#151A1C] mt-1">
                 {t("100% Continuity", "முழுமையான மருத்துவர் பொறுப்பு")}
@@ -254,7 +263,7 @@ export default function HomePage() {
               <p className="text-xs text-[#717880] mt-0.5">
                 {t("Exam, surgery & reviews by Dr. Raghuram", "அனைத்தும் டாக்டர் ரகுராம் அவர்களே செய்கிறார்")}
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -292,7 +301,7 @@ export default function HomePage() {
           {/* 4 Core Symptom Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1: Cataract */}
-            <div className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#0B5C8A] hover:shadow-md transition-all group">
+            <ScrollReveal delay={0} className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#0B5C8A] hover:shadow-md transition-all group">
               <div>
                 <div className="p-2.5 bg-[#EFF3F5] text-[#0B5C8A] rounded w-fit mb-4">
                   <Eye className="w-6 h-6" />
@@ -324,10 +333,10 @@ export default function HomePage() {
                   <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Card 2: Vitreo-Retina */}
-            <div className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#B8722C] hover:shadow-md transition-all group">
+            <ScrollReveal delay={0.1} className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#B8722C] hover:shadow-md transition-all group">
               <div>
                 <div className="p-2.5 bg-[#FDF8F3] text-[#B8722C] rounded w-fit mb-4">
                   <AlertTriangle className="w-6 h-6" />
@@ -358,10 +367,10 @@ export default function HomePage() {
                   <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Card 3: Diabetic Retinopathy */}
-            <div className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#0B5C8A] hover:shadow-md transition-all group">
+            <ScrollReveal delay={0.2} className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#0B5C8A] hover:shadow-md transition-all group">
               <div>
                 <div className="p-2.5 bg-[#EFF3F5] text-[#0B5C8A] rounded w-fit mb-4">
                   <ShieldCheck className="w-6 h-6" />
@@ -393,10 +402,10 @@ export default function HomePage() {
                   <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Card 4: Glaucoma */}
-            <div className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#0B5C8A] hover:shadow-md transition-all group">
+            <ScrollReveal delay={0.3} className="bg-[#FFFFFF] border border-[#E2DACE] rounded-lg p-6 flex flex-col justify-between hover:border-[#0B5C8A] hover:shadow-md transition-all group">
               <div>
                 <div className="p-2.5 bg-[#EFF3F5] text-[#0B5C8A] rounded w-fit mb-4">
                   <Clock className="w-6 h-6" />
@@ -428,7 +437,7 @@ export default function HomePage() {
                   <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -455,7 +464,7 @@ export default function HomePage() {
 
           {/* 4-Step Horizontal Timeline Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="p-5 bg-[#FBF8F3] border border-[#E2DACE] rounded-lg relative">
+            <ScrollReveal delay={0} className="p-5 bg-[#FBF8F3] border border-[#E2DACE] rounded-lg relative">
               <span className="text-2xl font-bold font-serif text-[#0B5C8A]">08:30 AM</span>
               <h4 className="font-bold text-base text-[#151A1C] mt-2">
                 {t("1. Check-In & Biometry", "1. பதிவு & பரிசோதனை")}
@@ -466,9 +475,9 @@ export default function HomePage() {
                   "குடும்பத்தினருடன் வருகை. லென்ஸ் எண் மற்றும் விழித்திரை நிலை மீண்டும் பரிசோதிக்கப்படும்."
                 )}
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="p-5 bg-[#FBF8F3] border border-[#E2DACE] rounded-lg relative">
+            <ScrollReveal delay={0.1} className="p-5 bg-[#FBF8F3] border border-[#E2DACE] rounded-lg relative">
               <span className="text-2xl font-bold font-serif text-[#0B5C8A]">09:15 AM</span>
               <h4 className="font-bold text-base text-[#151A1C] mt-2">
                 {t("2. Anaesthetic Eye Drops", "2. சொட்டு மருந்து")}
@@ -479,9 +488,9 @@ export default function HomePage() {
                   "கண்ணில் சொட்டு மருந்து மட்டுமே இடப்படும். கண்களில் எவ்வித ஊசிகளும் போடப்படுவதில்லை."
                 )}
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="p-5 bg-[#EFF7F3] border border-[#2E7D5B]/40 rounded-lg relative">
+            <ScrollReveal delay={0.2} className="p-5 bg-[#EFF7F3] border border-[#2E7D5B]/40 rounded-lg relative">
               <span className="text-2xl font-bold font-serif text-[#2E7D5B]">09:45 AM</span>
               <h4 className="font-bold text-base text-[#151A1C] mt-2">
                 {t("3. 15-Minute MICS Surgery", "3. 15 நிமிட நுண்துளை அறுவை சிகிச்சை")}
@@ -492,9 +501,9 @@ export default function HomePage() {
                   "டாக்டர் ரகுராம் அவர்களே 2.2மிமீ துளை வழியே லென்ஸை மாற்றி அமைக்கிறார். வலியில்லா விரைவு முறை."
                 )}
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="p-5 bg-[#FBF8F3] border border-[#E2DACE] rounded-lg relative">
+            <ScrollReveal delay={0.3} className="p-5 bg-[#FBF8F3] border border-[#E2DACE] rounded-lg relative">
               <span className="text-2xl font-bold font-serif text-[#0B5C8A]">11:30 AM</span>
               <h4 className="font-bold text-base text-[#151A1C] mt-2">
                 {t("4. Discharge with Shield", "4. வீடு திரும்புதல்")}
@@ -505,7 +514,7 @@ export default function HomePage() {
                   "பாதுகாப்பு கவசம் பொருத்தப்பட்டு, மருந்து அட்டவணையுடன் மதிய உணவிற்குள் வீடு செல்லலாம்."
                 )}
               </p>
-            </div>
+            </ScrollReveal>
           </div>
 
           <div className="mt-8 text-center">
@@ -525,7 +534,7 @@ export default function HomePage() {
           ─────────────────────────────────────────────────────────── */}
       <section className="py-16 sm:py-20 bg-[#F5EFE5] border-b border-[#E2DACE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="bg-[#FFFFFF] border-2 border-[#E2DACE] rounded-xl p-8 sm:p-12 shadow-sm">
+          <ScrollReveal className="bg-[#FFFFFF] border-2 border-[#E2DACE] rounded-xl p-8 sm:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <span className="inline-block px-3 py-1 bg-[#EFF7F3] text-[#2E7D5B] text-xs font-bold rounded">
@@ -578,7 +587,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -588,7 +597,7 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 bg-[#FBF8F3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-5">
+            <ScrollReveal direction="right" className="lg:col-span-6 space-y-5">
               <span className="text-xs font-bold uppercase tracking-widest text-[#0B5C8A]">
                 {t("Pollachi Wayfinding / இருப்பிடம்", "மருத்துவமனை இருப்பிடம்")}
               </span>
@@ -637,10 +646,10 @@ export default function HomePage() {
                   <span>{t("Call Desk for Directions", "வழிகாட்ட அழைக்க")}</span>
                 </a>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Visual Transit Card */}
-            <div className="lg:col-span-6">
+            <ScrollReveal direction="left" delay={0.2} className="lg:col-span-6">
               <div className="bg-[#EFF3F5] border border-[#CBD5E1] rounded-xl p-6 sm:p-8 space-y-4">
                 <h3 className="text-lg font-bold font-serif text-[#151A1C]">
                   {t("Transit Routes to Hospital", "பயண வழிகாட்டி")}
@@ -684,7 +693,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
