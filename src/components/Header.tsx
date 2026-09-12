@@ -125,7 +125,7 @@ export const Header: React.FC = () => {
             {/* Book Consultation Primary Button */}
             <button
               onClick={() => setModalOpen(true)}
-              className="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 bg-[#0B5C8A] hover:bg-[#08486D] text-[#FFFFFF] text-sm font-bold rounded shadow-xs transition-colors cursor-pointer"
+              className="hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2.5 bg-[#0B5C8A] hover:bg-[#08486D] text-[#FFFFFF] text-sm font-bold rounded shadow-xs transition-colors cursor-pointer"
             >
               {t("Book OPD Token", "முன்பதிவு")}
             </button>
@@ -169,6 +169,16 @@ export const Header: React.FC = () => {
             </nav>
 
             <div className="pt-2 border-t border-[#E2DACE] flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setModalOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full py-2.5 text-center font-bold text-sm text-[#FFFFFF] bg-[#0B5C8A] hover:bg-[#08486D] rounded flex items-center justify-center gap-2 transition-colors"
+              >
+                {t("Book OPD Token", "முன்பதிவு")}
+              </button>
+
               <a
                 href="tel:04259221000"
                 className="w-full py-2.5 text-center font-bold text-sm text-[#0B5C8A] border border-[#0B5C8A] rounded bg-[#EFF3F5] flex items-center justify-center gap-2"
